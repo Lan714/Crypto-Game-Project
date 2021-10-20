@@ -41,7 +41,6 @@ const Leaderboard = () => {
 	const getRankings = (weekNum) => {
 		HistoryAPI.getRankingforSpecificWeek(weekNum)
 			.then(({ data }) => {
-				console.log(data)
 				setRankingState(data)
 			})
 	}
@@ -53,7 +52,6 @@ const Leaderboard = () => {
 		// weeknum=1 cannot be default for every users
 		HistoryAPI.getRankingforSpecificWeek(1)
 			.then(({ data }) => {
-				console.log(data)
 				setRankingState(data)
 			})
 	}, [])

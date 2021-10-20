@@ -9,7 +9,7 @@ import DropdownWeeknumForm from '../../components/DropdownWeekNumForm'
 import Table from 'rc-table'
 import './History.css'
 
-const columns = [
+const columns_overview = [
 	{
 		title: 'Cash Balance',
 		dataIndex: 'cash_balance',
@@ -30,6 +30,45 @@ const columns = [
 	}
 ];
 
+const columns_transaction = [
+	{
+		title: 'Date Time',
+		dataIndex: 'date',
+		key: 'date',
+		width: 300,
+	},
+	{
+		title: 'Coin Name',
+		dataIndex: 'crypto_name',
+		key: 'crypto_name',
+		width: 200,
+	},
+	{
+		title: 'Side',
+		dataIndex: 'side',
+		key: 'side',
+		width: 200,
+	},
+	{
+		title: 'Price',
+		dataIndex: 'price',
+		key: 'price',
+		width: 200,
+	},
+	{
+		title: 'Amount',
+		dataIndex: 'amount',
+		key: 'amount',
+		width: 200,
+	},
+	{
+		title: 'Total',
+		dataIndex: 'total',
+		key: 'total',
+		width: 200,
+	}
+];
+
 const History = () => {
 	const [historyState, setHistoryState] = useState({
 		historys: []
@@ -41,14 +80,7 @@ const History = () => {
 		profit: ''
 	}])
 
-	const [transcationState, setTransactionState] = useState([{
-		date: '',
-		coin_name: '',
-		side: '',
-		price: '',
-		amount: '',
-		total: ''
-	}])
+	const [transcationState, setTransactionState] = useState([])
 
 
 	const getHistory = (weekNum) => {
@@ -64,12 +96,14 @@ const History = () => {
 					coin_balance: total_crypto,
 					profit: data.data[0].profit
 				}])
-				console.log('overviewState')
 			})
 	}
 
 	const getTransaction = (weekNum) => {
-		console.log('getTransaction')
+		HistoryAPI.getHistory(weekNum)
+			.then((data) => {
+				setTransactionState(data.data[0].transaction)
+			})
 	}
 
 	useEffect(() => {
@@ -92,7 +126,8 @@ const History = () => {
 								{
 									historyState.historys.map((weekNumber) => (<DropdownWeeknumForm
 										weekNum={weekNumber}
-										getfunction={getHistory} />))
+										getfunction={getHistory}
+										getfunction2={getTransaction} />))
 								}
 							</Dropdown.Menu>
 						</Dropdown>
@@ -103,12 +138,12 @@ const History = () => {
 							Overview
 						</Col>
 						<Col sm={6}>
-							<Table columns={columns} data={overviewState} />
+							<Table columns={columns_overview} data={overviewState} />
 						</Col>
 					</Row>
 					<br />
 					<Row>
-						History Table
+						<Table columns={columns_transaction} data={transcationState} />
 					</Row>
 				</Container>
 			</div>

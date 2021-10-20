@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
-import UserAPI from '../../utils/UserAPI'
-import Button from 'react-bootstrap/Button'
 import Navbar from '../../components/NavBar'
 import './Home.css'
 
 const Home = () => {
+	if (!localStorage.getItem('token')) {
+		window.location = '/signin'
+	}
 	return (
 		<div className="homePg">
 			<Navbar />
