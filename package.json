@@ -1,0 +1,36 @@
+{
+  "name": "crypto-game-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lan714/Crypto-Game-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lan714/Crypto-Game-Project/issues"
+  },
+  "homepage": "https://github.com/Lan714/Crypto-Game-Project#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.1",
+    "concurrently": "^6.3.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.10",
+    "passport": "0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "rc-table": "^7.19.0",
+    "react-bootstrap": "^2.0.0-rc.1",
+    "react-js-stickynav": "^1.0.2"
+  }
+}
