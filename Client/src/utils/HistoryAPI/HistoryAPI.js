@@ -16,7 +16,7 @@ const HistoryAPI = {
 		}
 	}),
 
-	getHistory: () => axios.get('api/history', {
+	getHistory: (num) => axios.get(`api/history/${num}`, {
 		headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import UserAPI from '../../utils/UserAPI'
 import Button from 'react-bootstrap/Button'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/NavBar'
 import './Home.css'
 
 const Home = () => {

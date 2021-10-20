@@ -10,6 +10,11 @@ router.get('/history/max', passport.authenticate('jwt'), (req, res) => {
 	res.json(result)
 })
 
+router.get('/history/:num', passport.authenticate('jwt'), (req, res) => {
+	History.find({ weekNumber: req.params.num, user: req.user._id })
+		.then(history => res.json(history))
+})
+
 router.post('/history', passport.authenticate('jwt'), async function (req, res) {
 	const history = await History.create({ ...req.body, username: req.user.username, user: req.user._id })
 	await User.findByIdAndUpdate(req.user._id, { $push: { historys: history._id } })
