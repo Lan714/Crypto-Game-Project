@@ -1,0 +1,18 @@
+.aboutUsPg {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #002F67, #3993CD) no-repeat fixed;
+}
+
+.pgContent {
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 5rem);
+  left: 5rem;
+  padding: 1rem;
+}
