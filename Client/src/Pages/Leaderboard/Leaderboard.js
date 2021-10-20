@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react'
-import HistoryElem from '../../components/HistoryElem'
 import DropdownWeeknumForm from '../../components/DropdownWeekNumForm'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
 import HistoryAPI from '../../utils/HistoryAPI'
-import UserAPI from '../../utils/UserAPI'
-import Button from 'react-bootstrap/Button'
 import Dropdown from 'react-bootstrap/Dropdown'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/NavBar'
 import './Leaderboard.css'
 import Table from 'rc-table'
 
@@ -54,8 +50,10 @@ const Leaderboard = () => {
 		HistoryAPI.getWeekNum()
 			.then(({ data: historys }) => setHistoryState({ ...historyState, historys }))
 			.catch(err => window.location = '/')
+		// weeknum=1 cannot be default for every users
 		HistoryAPI.getRankingforSpecificWeek(1)
 			.then(({ data }) => {
+				console.log(data)
 				setRankingState(data)
 			})
 	}, [])
@@ -76,7 +74,7 @@ const Leaderboard = () => {
 									{
 										historyState.historys.map((weekNumber) => (<DropdownWeeknumForm
 											weekNum={weekNumber}
-											getRankings={getRankings} />))
+											getfunction={getRankings} />))
 									}
 								</Dropdown.Menu>
 							</Dropdown>
