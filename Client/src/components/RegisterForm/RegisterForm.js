@@ -40,7 +40,7 @@ const RegisterForm = () => {
 			<Form.Group className="mb-3" controlId="email">
 				<Form.Label></Form.Label>
 				<Form.Control
-					type="email"
+					type="text"
 					placeholder="Enter your email"
 					name="email"
 					value={userState.email}
@@ -74,7 +74,7 @@ const RegisterForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Button
-				variant="primary"
+				variant="warning"
 				type="submit"
 				onClick={handleRegisterUser} >
 				Register
