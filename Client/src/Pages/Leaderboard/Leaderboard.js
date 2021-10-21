@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import DropdownWeeknumForm from '../../components/DropdownWeekNumForm'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import { Container, Row, Col, Dropdown } from 'react-bootstrap'
 import HistoryAPI from '../../utils/HistoryAPI'
-import Dropdown from 'react-bootstrap/Dropdown'
 import Navbar from '../../components/NavBar'
-import './Leaderboard.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrophy } from '@fortawesome/free-solid-svg-icons'
 import * as ReactBootStrap from 'react-bootstrap'
+import './Leaderboard.css'
 
 const Leaderboard = () => {
 	const [historyState, setHistoryState] = useState({
@@ -58,66 +57,73 @@ const Leaderboard = () => {
 	}, [])
 
 	return (
-		<>
-			<div className="homePg">
-				<Navbar />
-				<div className="pgContent">
-					<Container className="cont">
-						<Row>
-							<Col sm={6}>
-								<Dropdown>
-									<Dropdown.Toggle variant="success" id="dropdown-basic">
-										Choose week number to see
-									</Dropdown.Toggle>
-									<Dropdown.Menu>
-										{
-											historyState.historys.map((weekNumber) => (<DropdownWeeknumForm
-												weekNum={weekNumber}
-												getfunction={getRankings} />))
-										}
-									</Dropdown.Menu>
-								</Dropdown>
-							</Col>
-						</Row>
-						<br />
-						{loading ?
-							(
-								<div>
-									<Row>
-										Week {weekNumState}'s Ranking
-									</Row>
-									<br />
-									<Row>
-										<ReactBootStrap.Table striped bordered hover>
-											<thead>
-												<tr>
-													<th>Rank</th>
-													<th>Username</th>
-													<th>Profit</th>
-												</tr>
-											</thead>
-											<tbody>
+		<div className="homePg">
+			<Navbar />
+			<div className="pgContent">
+				<Container id="lbHeader">
+					<Row>
+						<Col id="lbTitle">
+							<FontAwesomeIcon icon={faTrophy} id="lbIcon" />
+							Leaderboard
+						</Col>
+					</Row>
+				</Container>
+				<Container id="lbTableCont">
+					<br />
+					{loading ?
+						(
+							<div>
+								<Row>
+									<Col sm={4} className="d-flex p-0">
+										<Dropdown>
+											<Dropdown.Toggle className="weekTogBtn" variant="dark" id="dropdown-basic">
+												Week
+											</Dropdown.Toggle>
+											<Dropdown.Menu>
 												{
-													rankingState.ranks.map(renderRank)
+													historyState.historys.map((weekNumber) => (<DropdownWeeknumForm
+														weekNum={weekNumber}
+														getfunction={getRankings} />))
 												}
-											</tbody>
-										</ReactBootStrap.Table>
-									</Row>
-								</div>
-							)
+											</Dropdown.Menu>
+										</Dropdown>
+									</Col>
+									<Col sm={4} className="d-flex justify-content-center align-items-center" id="lbTableTitle">
+										Week {weekNumState}'s Ranking
+									</Col>
+									<Col sm={4}></Col>
+								</Row>
+								<br />
+								<Row>
+									<ReactBootStrap.Table striped bordered hover variant="dark">
+										<thead>
+											<tr>
+												<th>Rank</th>
+												<th>Username</th>
+												<th>Profit</th>
+											</tr>
+										</thead>
+										<tbody>
+											{
+												rankingState.ranks.map(renderRank)
+											}
+										</tbody>
+									</ReactBootStrap.Table>
+								</Row>
+							</div>
+						)
+						: (
+							// Loader needs to be placed where table will be placed
+							<div>
+								Loading................
+								<ReactBootStrap.Spinner animation="grow" />
+							</div>
+						)
+					}
+				</Container>
 
-							: (
-								// Loader needs to be placed where table will be placed
-								<div>
-									Waiting for week number................
-									<ReactBootStrap.Spinner animation="grow" />
-								</div>
-							)
-						}
-					</Container>
-				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 

@@ -2,8 +2,7 @@ import { useState } from 'react'
 import UserAPI from '../../utils/UserAPI'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-
-
+import './RegisterForm.css'
 
 const RegisterForm = () => {
 	const [userState, setUserState] = useState({
@@ -26,10 +25,10 @@ const RegisterForm = () => {
 			.catch(err => console.error(err))
 	}
 
-	return (
-		<Form>
+return (
+		<Form className="text-center">
 			<Form.Group className="mb-3" controlId="name">
-				<Form.Label>Name</Form.Label>
+				<Form.Label style={{color: "white"}}>Name</Form.Label>
 				<Form.Control
 					type="text"
 					placeholder="Enter your name"
@@ -38,7 +37,7 @@ const RegisterForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="email">
-				<Form.Label>Email</Form.Label>
+				<Form.Label style={{color: "white"}}>Email</Form.Label>
 				<Form.Control
 					type="email"
 					placeholder="Enter your email"
@@ -47,7 +46,7 @@ const RegisterForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="username">
-				<Form.Label>Username</Form.Label>
+				<Form.Label style={{color: "white"}}>Username</Form.Label>
 				<Form.Control
 					type="text"
 					placeholder="Enter your username"
@@ -56,7 +55,7 @@ const RegisterForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="password">
-				<Form.Label>Password</Form.Label>
+				<Form.Label style={{color: "white"}}>Password</Form.Label>
 				<Form.Control
 					type="password"
 					placeholder="Enter your password"
@@ -64,8 +63,9 @@ const RegisterForm = () => {
 					value={userState.password}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Button
+			<Button className="btn"
 				variant="primary"
+				style={{inlineSize: "min-content"}}
 				type="submit"
 				onClick={handleRegisterUser} >
 				Register
