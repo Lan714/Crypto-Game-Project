@@ -15,6 +15,7 @@ const Register = () => {
         </Card.Body>
         <Card.Footer className="text-muted">Become a Crypto expert here!</Card.Footer>
       </Card>
+      <BackgroundVideo/>
       <Container>
         <Row>
           <Col sm={6}>
