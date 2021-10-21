@@ -94,9 +94,10 @@ const Leaderboard = () => {
 											</Dropdown.Menu>
 										</Dropdown>
 									</Col>							
-									<Col sm={8} className="d-flex ps-5" id="lbTableTitle">
+									<Col sm={4} className="d-flex justify-content-center align-items-center" id="lbTableTitle">
 										Week {weekNumState}'s Ranking
-									</Col>									
+									</Col>	
+									<Col sm={4}></Col>								
 								</Row>
 								<br />
 								<Row>
