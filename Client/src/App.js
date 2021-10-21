@@ -6,7 +6,7 @@ import {
 import Auth from './Pages/Auth'
 import Register from './Pages/Register'
 import Home from './Pages/Home'
-import Header from './components/Header'
+// import Header from './components/Header'
 import Footer from './components/Footer'
 import History from './Pages/History'
 import Crypto from './Pages/Crypto'
@@ -23,7 +23,7 @@ function App() {
       <div>
         <Switch>
           <Route exact path='/'>
-            <Header />
+            {/* <Header /> */}
             <Home />
             <Footer />
           </Route>
