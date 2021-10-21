@@ -32,6 +32,9 @@ function App() {
           <Route path='/signIn'>
             <Auth />
           </Route>
+          <Route path='/Crypto'>
+            <Crypto />
+          </Route>
           <Route path='/history'>
             <History />
           </Route>
