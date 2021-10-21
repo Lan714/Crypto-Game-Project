@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react'
 import HistoryAPI from '../../utils/HistoryAPI'
 import Navbar from '../../components/NavBar'
-import Dropdown from 'react-bootstrap/Dropdown'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import { Dropdown, Container, Row, Col } from 'react-bootstrap'
 import DropdownWeeknumForm from '../../components/DropdownWeekNumForm'
-import './History.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWallet } from '@fortawesome/free-solid-svg-icons'
 import * as ReactBootStrap from 'react-bootstrap'
-
+import './History.css'
 
 const History = () => {
 	const [historyState, setHistoryState] = useState({
@@ -33,7 +31,6 @@ const History = () => {
 			})
 		setLoading(true)
 	}
-
 
 	const getHistory = (weekNum) => {
 		HistoryAPI.getHistory(weekNum)
@@ -88,15 +85,23 @@ const History = () => {
 	}
 
 	return (
-		<>
-			<div className="historyPg">
-				<Navbar />
-				<div className="pgContent">
-					<Container className="cont">
-						<Row>
+		<div className="historyPg">
+			<Navbar />
+			<div className="pgContent">
+				<Container id="histHeader">
+					<Row>
+						<Col id="histTitle">
+							<FontAwesomeIcon icon={faWallet} id="histIcon" />
+							History
+						</Col>
+					</Row>
+				</Container>
+				<Container id="histTableCont">
+					<Row>
+						<Col className="d-flex p-0">
 							<Dropdown>
-								<Dropdown.Toggle variant="success" id="dropdown-basic">
-									Choose week number to see
+								<Dropdown.Toggle className="weekTogBtn" variant="dark" id="dropdown-basic">
+									Week
 								</Dropdown.Toggle>
 								<Dropdown.Menu>
 									{
@@ -106,66 +111,66 @@ const History = () => {
 									}
 								</Dropdown.Menu>
 							</Dropdown>
-						</Row>
-						<br />
-						{loading ? (
+						</Col>
+					</Row>
+					<br />
+					{loading ? (
+						<div>
+							<Row>
+								<Col className="d-flex justify-content-center align-items-center mt-2" id="histTableTitle">
+									Week {weekNumState}'s Overview
+								</Col>
+							</Row>
+							<br />
+							<Row>
+								<ReactBootStrap.Table striped bordered hover variant="dark">
+									<thead>
+										<tr>
+											<th>Cash Balance</th>
+											<th>Coin Balance</th>
+											<th>Profit</th>
+										</tr>
+									</thead>
+									<tbody>
+										{
+											overviewState.map(renderOverview)
+										}
+									</tbody>
+								</ReactBootStrap.Table>
+							</Row>
+							<br />
+							<Row>
+								<ReactBootStrap.Table striped bordered hover variant="dark">
+									<thead>
+										<tr>
+											<th>Date Time</th>
+											<th>Coin Name</th>
+											<th>Side</th>
+											<th>Price</th>
+											<th>Amount</th>
+											<th>Total</th>
+										</tr>
+									</thead>
+									<tbody>
+										{
+											transcationState.map(renderTransaction)
+										}
+									</tbody>
+								</ReactBootStrap.Table>
+							</Row>
+						</div>
+					)
+
+						: (
 							<div>
-								<Row>
-									<Col sm={6}>
-										Week {weekNumState} Overview
-									</Col>
-									<Col sm={6}>
-										<ReactBootStrap.Table striped bordered hover>
-											<thead>
-												<tr>
-													<th>Cash Balance</th>
-													<th>Coin Balance</th>
-													<th>Profit</th>
-												</tr>
-											</thead>
-											<tbody>
-												{
-													overviewState.map(renderOverview)
-												}
-											</tbody>
-										</ReactBootStrap.Table>
-									</Col>
-								</Row>
-								<br />
-								<Row>
-									<ReactBootStrap.Table striped bordered hover>
-										<thead>
-											<tr>
-												<th>Date Time</th>
-												<th>Coin Name</th>
-												<th>Side</th>
-												<th>Price</th>
-												<th>Amount</th>
-												<th>Total</th>
-											</tr>
-										</thead>
-										<tbody>
-											{
-												transcationState.map(renderTransaction)
-											}
-										</tbody>
-									</ReactBootStrap.Table>
-								</Row>
+								Waiting for week number................
+								<ReactBootStrap.Spinner animation="grow" />
 							</div>
 						)
-
-							: (
-								<div>
-									Waiting for week number................
-									<ReactBootStrap.Spinner animation="grow" />
-								</div>
-							)
-						}
-
-					</Container>
-				</div>
+					}
+				</Container>
 			</div>
-		</>
+		</div>
 	)
 }
 
