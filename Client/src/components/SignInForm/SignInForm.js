@@ -49,11 +49,16 @@ const SignInForm = () => {
 					value={userState.password}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Button
-				variant="primary"
+			<Button id="signIn"
+				variant="warning"
 				type="submit"
 				onClick={handleLoginUser} >
 				Sign In
+			</Button>
+			<Button id="register"
+				variant="warning"
+				type="button">
+				Register
 			</Button>
 		</Form>
 	)
