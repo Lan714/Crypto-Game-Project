@@ -25,7 +25,7 @@ router.post('/history', passport.authenticate('jwt'), async function (req, res) 
 	var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000))
 	var ingame_weeknumber = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7)
 
-	const history = await History.create({ weekNumber: ingame_weeknumber, cash_balance: 1000, profit: 0, username: req.user.username, user: req.user._id })
+	const history = await History.create({ weekNumber: ingame_weeknumber, cash_balance: 1000, crypto_balances: 0, profit: 0, username: req.user.username, user: req.user._id })
 
 	await User.findByIdAndUpdate(req.user._id, { $push: { historys: history._id } })
 		.then(data => res.json({
@@ -37,10 +37,7 @@ router.post('/history', passport.authenticate('jwt'), async function (req, res) 
 			err: err,
 			message: "unable to post history"
 		}))
-
 })
-
-
 
 router.put('/history/transaction/', passport.authenticate('jwt'), async function (req, res) {
 	const currentdate = new Date()
@@ -49,40 +46,58 @@ router.put('/history/transaction/', passport.authenticate('jwt'), async function
 	var ingame_weeknumber = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7)
 
 	let historys = req.user.historys
-	let last_index = req.user.historys.length - 1
-
-	const transaction = await Transaction.create({ ...req.body, date: currentdate, history: historys[last_index]._id })
-
-	let dollar_value = 0
+	let history_id = historys.find(obj => obj.weekNumber === ingame_weeknumber)._id
 	let crypto_name = req.body.crypto_name
-	if (req.body.side === 'sell') {
-		dollar_value -= req.body.total
-	}
-	else {
-		dollar_value += req.body.total
-	}
+	let amount = req.body.amount
+	let cash_balance = historys.find(obj => obj.weekNumber === ingame_weeknumber).cash_balance
+	let crypto_balances = historys.find(obj => obj.weekNumber === ingame_weeknumber).crypto_balances
+	let total = req.body.price * amount
 
-	console.log(dollar_value)
-	console.log(crypto_name)
-	console.log('Adding Transaction into History')
+	let profit = cash_balance + crypto_balances - 1000
 
-	// const crypto = await Crypto.create({ crypto_name: crypto_name, dollar_value: dollar_value, history: historys[last_index]._id })
+	// able to make transaction
+	if (total <= cash_balance) {
+		if (req.body.side === 'sell') {
+			cash_balance += total
+			crypto_balances -= total
+		}
+		else {
+			crypto_balances += total
+			cash_balance -= total
+		}
 
-	// console.log('crypto created')
+		// check if user already has the crypto in database
+		// await Crypto.findByIdAndUpdate({hitory:history_id, }, {
 
-	await History.findByIdAndUpdate(historys[last_index]._id, { $push: { transactions: transaction } })
-		.then(data => {
-			res.json({
-				history: data,
-				transaction: transaction,
-				message: 'success'
-			})
+		// })
+
+		const crypto = await Crypto.create({ ...req.body, history: history_id })
+
+		const transaction = await Transaction.create({ ...req.body, date: currentdate, total: total, history: history_id })
+
+		// update balance
+		await History.findByIdAndUpdate(history_id, {
+			$push: { cryptos: crypto }, $push: { transactions: transaction }, cash_balance: cash_balance, crypto_balances: crypto_balances, profit: profit
 		})
-		.catch(err => res.json({
-			err: err,
-			message: "unable to push transaction"
-		}))
-	res.sendStatus(200)
+			.then(data => {
+				res.json({
+					history: data,
+					message: 'History updated with new balances'
+				})
+			})
+			.catch(err => res.json({
+				err: err,
+				message: "unable to update balance"
+			}))
+	}
+	// not able to make transaction
+	else {
+		res.json(
+			{
+				message: "Not enough cash balance"
+			}
+		)
+	}
 })
 
 router.put('/history/:id', passport.authenticate('jwt'), async function (req, res) {
