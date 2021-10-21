@@ -4,6 +4,10 @@ const History = new Schema({
   weekNumber: Number,
   cash_balance: Number,
   crypto_balances: Number,
+  cryptos: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Crypto'
+  }],
   transactions: [{
     type: Schema.Types.ObjectId,
     ref: 'Transaction'

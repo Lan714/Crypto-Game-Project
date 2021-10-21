@@ -2,7 +2,7 @@ const { model, Schema, SchemaTypes } = require('mongoose')
 
 const Crypto = new Schema({
 	crypto_name: String,
-	dollar_value: Number,
+	amount: Number,
 	history: {
 		type: Schema.Types.ObjectId,
 		ref: 'History'
