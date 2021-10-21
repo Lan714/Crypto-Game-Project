@@ -90,10 +90,9 @@ const Leaderboard = () => {
 						(
 							<div>
 								<Row>
-									<Col sm={4} className="d-flex justify-content-center align-items-center" id="lbTableTitle">
+									<Col className="d-flex justify-content-center align-items-center mt-2" id="lbTableTitle">
 										Week {weekNumState}'s Ranking
 									</Col>
-									<Col sm={4}></Col>
 								</Row>
 								<br />
 								<Row>
