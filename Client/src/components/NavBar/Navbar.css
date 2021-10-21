@@ -9,7 +9,7 @@
   width: 5rem;
   height: 100vh;
   background-color: #23232e;
-  font-size: 20px;
+  font-size: 19px;
   /* overflow: scroll; */
   /*topby2layers*/
   z-index: 2;
@@ -17,12 +17,12 @@
 }
 
 .sideNavbar:hover {
-  width: 16rem;
+  width: 18rem;
 }
 
 .sideNavbar:hover~.pgContent {
-  width: calc(100% - 16rem);
-  left: 16rem;
+  width: calc(100% - 18rem);
+  left: 18rem;
 }
 
 .navLi {
@@ -52,13 +52,15 @@
   align-items: center;
   white-space: nowrap;
   color: white;
-  filter: grayscale(100%) opacity(0.7);
 }
 
 .navTab:hover {
-  filter: grayscale(0%) opacity(1);
   background: #141418;
   cursor: pointer;
+}
+
+.navTab:hover #navIcon {
+  color: #3993CD;
 }
 
 .navSpan {
@@ -77,7 +79,7 @@
   text-transform: uppercase;
   margin-bottom: 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   letter-spacing: 0.3ch;
   width: 100%;
   color: white;
