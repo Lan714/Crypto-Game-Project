@@ -10,12 +10,11 @@ import Footer from './components/Footer'
 import History from './Pages/History'
 import Leaderboard from './Pages/Leaderboard';
 import AboutUs from './Pages/AboutUs';
+import Ingame_weekNumber from './components/Ingame_weekNumber'
+
 
 function App() {
-  const current = new Date()
-  console.log(current.getDate())
-  console.log(current.getMonth())
-  console.log(current.getFullYear())
+  console.log(`The week number of the current date (${Ingame_weekNumber().currentdate}) is ${Ingame_weekNumber().ingame_weeknumber}.`);
 
   return (
     <Router>
