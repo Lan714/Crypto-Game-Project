@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './RegisterForm.css'
 
-
 const RegisterForm = () => {
 	const [userState, setUserState] = useState({
 		name: '',
@@ -26,10 +25,11 @@ const RegisterForm = () => {
 			.catch(err => console.error(err))
 	}
 
-	return (
-		<Form>
+return (
+		<Form className="text-center">
 			<Form.Group className="mb-3" controlId="name">
 				<Form.Label></Form.Label>
+
 				<Form.Control
 					type="text"
 					placeholder="Enter your name"
@@ -39,6 +39,7 @@ const RegisterForm = () => {
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="email">
 				<Form.Label></Form.Label>
+
 				<Form.Control
 					type="text"
 					placeholder="Enter your email"
@@ -47,6 +48,7 @@ const RegisterForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="username">
+
 				<Form.Label></Form.Label>
 				<Form.Control
 					type="text"
@@ -56,7 +58,9 @@ const RegisterForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="password">
+
 				<Form.Label></Form.Label>
+
 				<Form.Control
 					type="password"
 					placeholder="Enter your password"
@@ -75,6 +79,7 @@ const RegisterForm = () => {
 			</Form.Group>
 			<Button
 				variant="warning"
+
 				type="submit"
 				onClick={handleRegisterUser} >
 				Register
