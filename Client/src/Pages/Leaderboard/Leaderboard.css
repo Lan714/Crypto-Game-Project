@@ -16,3 +16,36 @@ body {
   left: 5rem;
   padding: 1rem;
 }
+
+#lbHeader {
+  padding: 0;
+}
+
+#lbTableCont {
+  padding: 0;
+  margin-top: 10px;
+}
+
+#lbTitle {
+  color: white;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xxx-large;
+}
+
+#lbIcon {
+  margin-right: 1rem;
+  color: yellow;
+}
+
+#lbTableTitle {
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.weekTogBtn {
+  border-radius: 20px !important;
+}
