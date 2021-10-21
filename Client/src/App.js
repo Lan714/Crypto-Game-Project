@@ -9,6 +9,7 @@ import Home from './Pages/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import History from './Pages/History'
+import Crypto from './Pages/Crypto'
 import Leaderboard from './Pages/Leaderboard';
 import AboutUs from './Pages/AboutUs';
 import Ingame_weekNumber from './components/Ingame_weekNumber'
