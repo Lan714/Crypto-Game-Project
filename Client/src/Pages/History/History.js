@@ -12,6 +12,7 @@ import * as ReactBootStrap from 'react-bootstrap'
 
 const History = () => {
 	const [historyState, setHistoryState] = useState({
+		weekNumber: '',
 		historys: []
 	})
 

@@ -70,24 +70,26 @@ const Leaderboard = () => {
 				</Container>
 				<Container id="lbTableCont">
 					<br />
+					<Row>
+						<Col sm={4} className="d-flex p-0">
+							<Dropdown>
+								<Dropdown.Toggle className="weekTogBtn" variant="dark" id="dropdown-basic">
+									Week
+								</Dropdown.Toggle>
+								<Dropdown.Menu>
+									{
+										historyState.historys.map((weekNumber) => (<DropdownWeeknumForm
+											weekNum={weekNumber}
+											getfunction={getRankings} />))
+									}
+								</Dropdown.Menu>
+							</Dropdown>
+						</Col>
+					</Row>
 					{loading ?
 						(
 							<div>
 								<Row>
-									<Col sm={4} className="d-flex p-0">
-										<Dropdown>
-											<Dropdown.Toggle className="weekTogBtn" variant="dark" id="dropdown-basic">
-												Week
-											</Dropdown.Toggle>
-											<Dropdown.Menu>
-												{
-													historyState.historys.map((weekNumber) => (<DropdownWeeknumForm
-														weekNum={weekNumber}
-														getfunction={getRankings} />))
-												}
-											</Dropdown.Menu>
-										</Dropdown>
-									</Col>
 									<Col sm={4} className="d-flex justify-content-center align-items-center" id="lbTableTitle">
 										Week {weekNumState}'s Ranking
 									</Col>
