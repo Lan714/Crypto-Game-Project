@@ -92,14 +92,13 @@ router.put('/history/:id', passport.authenticate('jwt'), async function (req, re
 	res.sendStatus(200)
 })
 
-router.get('/history/transaction/:id', passport.authenticate('jwt'), (req, res) => {
+router.get('/history/transaction/:weekNum', passport.authenticate('jwt'), (req, res) => {
 
 	let historys = req.user.historys
-	let last_index = req.user.historys.length - 1
+	let weekNum = req.params.weekNum
+	let history_id = historys.find(obj => obj.weekNumber.toString() === weekNum)._id
 
-	console.log(historys)
-
-	Transaction.find({ history: historys[last_index]._id })
+	Transaction.find({ history: history_id })
 		.then(data => {
 			res.json(data)
 		})
