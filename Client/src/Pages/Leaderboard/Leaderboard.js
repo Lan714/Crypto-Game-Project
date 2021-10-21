@@ -7,28 +7,7 @@ import HistoryAPI from '../../utils/HistoryAPI'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Navbar from '../../components/NavBar'
 import './Leaderboard.css'
-import Table from 'rc-table'
-
-const columns = [
-	{
-		title: '#',
-		dataIndex: 'rank',
-		key: 'rank',
-		width: 100,
-	},
-	{
-		title: 'Username',
-		dataIndex: 'username',
-		key: 'username',
-		width: 100,
-	},
-	{
-		title: 'Profit',
-		dataIndex: 'profit',
-		key: 'profit',
-		width: 200,
-	}
-];
+import * as ReactBootStrap from 'react-bootstrap'
 
 const Leaderboard = () => {
 	const [historyState, setHistoryState] = useState({
@@ -36,54 +15,115 @@ const Leaderboard = () => {
 		historys: []
 	})
 
-	const [rankingState, setRankingState] = useState([])
+	const [rankingState, setRankingState] = useState({
+		ranks: []
+	})
+
+	const [weekNumState, setWeekNumState] = useState(0)
+	const [loading, setLoading] = useState(false)
 
 	const getRankings = (weekNum) => {
+		setWeekNumState(weekNum)
 		HistoryAPI.getRankingforSpecificWeek(weekNum)
-			.then(({ data }) => {
-				setRankingState(data)
+			.then(({ data: ranks }) => {
+				console.log(ranks)
+				setRankingState({ ...rankingState, ranks })
 			})
+		setLoading(true)
+	}
+
+	const renderRank = (rank, index) => {
+		return (
+			<tr key={index}>
+				<td>{rank.rank}</td>
+				<td>{rank.username}</td>
+				<td>{rank.profit}</td>
+			</tr>
+		)
 	}
 
 	useEffect(() => {
 		HistoryAPI.getWeekNum()
-			.then(({ data: historys }) => setHistoryState({ ...historyState, historys }))
-			.catch(err => window.location = '/')
-		// weeknum=1 cannot be default for every users
-		HistoryAPI.getRankingforSpecificWeek(1)
-			.then(({ data }) => {
-				setRankingState(data)
+			.then(({ data: historys }) => {
+				historys = historys.sort()
+				setHistoryState({ ...historyState, historys })
 			})
+			.catch(err => window.location = '/')
 	}, [])
 
+	if (rankingState.ranks.length === 0) {
+		console.log('rankingState is empty')
+		HistoryAPI.getWeekNum()
+			.then((data) => {
+				setWeekNumState(Math.max(data.data[0]))
+				HistoryAPI.getRankingforSpecificWeek(Math.max(data.data[0])).then(({ data: ranks }) => {
+					setRankingState({ ...rankingState, ranks })
+					setLoading(true)
+				})
+			})
+	}
 
 	return (
-		<div className="homePg">
-			<Navbar />
-			<div className="pgContent">
-				<Container className="cont">
-					<Row>
-						<Col sm={6}>
-							<Dropdown>
-								<Dropdown.Toggle variant="success" id="dropdown-basic">
-									Choose week number to see
-								</Dropdown.Toggle>
-								<Dropdown.Menu>
-									{
-										historyState.historys.map((weekNumber) => (<DropdownWeeknumForm
-											weekNum={weekNumber}
-											getfunction={getRankings} />))
-									}
-								</Dropdown.Menu>
-							</Dropdown>
-						</Col>
-					</Row>
-					<Row>
-						<Table columns={columns} data={rankingState} />
-					</Row>
-				</Container>
+		<>
+			<div className="homePg">
+				<Navbar />
+				<div className="pgContent">
+					<Container className="cont">
+						<Row>
+							<Col sm={6}>
+								<Dropdown>
+									<Dropdown.Toggle variant="success" id="dropdown-basic">
+										Choose week number to see
+									</Dropdown.Toggle>
+									<Dropdown.Menu>
+										{
+											historyState.historys.map((weekNumber) => (<DropdownWeeknumForm
+												weekNum={weekNumber}
+												getfunction={getRankings} />))
+										}
+									</Dropdown.Menu>
+								</Dropdown>
+							</Col>
+						</Row>
+						<br />
+						{loading ?
+							(
+								<div>
+									<Row>
+										Week {weekNumState}'s Ranking
+									</Row>
+									<br />
+									<Row>
+										<ReactBootStrap.Table striped bordered hover>
+											<thead>
+												<tr>
+													<th>Rank</th>
+													<th>Username</th>
+													<th>Profit</th>
+												</tr>
+											</thead>
+											<tbody>
+												{
+													rankingState.ranks.map(renderRank)
+												}
+											</tbody>
+										</ReactBootStrap.Table>
+									</Row>
+								</div>
+							)
+
+							: (
+								// Loader needs to be placed where table will be placed
+								<div>
+									Loading................
+									<ReactBootStrap.Spinner animation="grow" />
+								</div>
+							)
+						}
+					</Container>
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 
