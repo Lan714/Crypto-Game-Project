@@ -2,7 +2,7 @@ import { useState } from 'react'
 import UserAPI from '../../utils/UserAPI'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-
+import './RegisterForm.css'
 
 
 const RegisterForm = () => {
@@ -29,7 +29,7 @@ const RegisterForm = () => {
 	return (
 		<Form>
 			<Form.Group className="mb-3" controlId="name">
-				<Form.Label>Name</Form.Label>
+				<Form.Label></Form.Label>
 				<Form.Control
 					type="text"
 					placeholder="Enter your name"
@@ -38,7 +38,7 @@ const RegisterForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="email">
-				<Form.Label>Email</Form.Label>
+				<Form.Label></Form.Label>
 				<Form.Control
 					type="email"
 					placeholder="Enter your email"
@@ -47,7 +47,7 @@ const RegisterForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="username">
-				<Form.Label>Username</Form.Label>
+				<Form.Label></Form.Label>
 				<Form.Control
 					type="text"
 					placeholder="Enter your username"
@@ -56,10 +56,19 @@ const RegisterForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="password">
-				<Form.Label>Password</Form.Label>
+				<Form.Label></Form.Label>
 				<Form.Control
 					type="password"
 					placeholder="Enter your password"
+					name="password"
+					value={userState.password}
+					onChange={handleInputChange} />
+			</Form.Group>
+			<Form.Group className="mb-3" controlId="password">
+				<Form.Label></Form.Label>
+				<Form.Control
+					type="password"
+					placeholder="Re-enter your password"
 					name="password"
 					value={userState.password}
 					onChange={handleInputChange} />
