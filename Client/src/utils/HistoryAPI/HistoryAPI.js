@@ -22,6 +22,18 @@ const HistoryAPI = {
 		}
 	}),
 
+	getTransaction: (transactions_id) => axios.get(`api/history/transaction/${transactions_id}`, {
+		headers: {
+			Authorization: `Bearer ${localStorage.getItem('token')}`
+		}
+	}),
+
+	pushTransaction: (transaction) => axios.put(`api/history/transaction/`, transaction, {
+		headers: {
+			Authorization: `Bearer ${localStorage.getItem('token')}`
+		}
+	}),
+
 	update: (id, updates) => axios.put(`/api/history/${id}`, updates, {
 		headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`

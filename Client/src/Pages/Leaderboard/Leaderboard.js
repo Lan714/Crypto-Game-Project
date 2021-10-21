@@ -25,10 +25,13 @@ const Leaderboard = () => {
 		setWeekNumState(weekNum)
 		HistoryAPI.getRankingforSpecificWeek(weekNum)
 			.then(({ data: ranks }) => {
-				console.log(ranks)
 				setRankingState({ ...rankingState, ranks })
+				setLoading(true)
 			})
-		setLoading(true)
+			.catch(err => {
+				console.log(err)
+			})
+
 	}
 
 	const renderRank = (rank, index) => {
@@ -47,20 +50,11 @@ const Leaderboard = () => {
 				historys = historys.sort()
 				setHistoryState({ ...historyState, historys })
 			})
-			.catch(err => window.location = '/')
-	}, [])
-
-	if (rankingState.ranks.length === 0) {
-		console.log('rankingState is empty')
-		HistoryAPI.getWeekNum()
-			.then((data) => {
-				setWeekNumState(Math.max(data.data[0]))
-				HistoryAPI.getRankingforSpecificWeek(Math.max(data.data[0])).then(({ data: ranks }) => {
-					setRankingState({ ...rankingState, ranks })
-					setLoading(true)
-				})
+			.catch(err => {
+				console.log(err)
+				window.location = '/'
 			})
-	}
+	}, [])
 
 	return (
 		<div className="homePg">
@@ -118,7 +112,6 @@ const Leaderboard = () => {
 								</Row>
 							</div>
 						)
-
 						: (
 							// Loader needs to be placed where table will be placed
 							<div>
@@ -128,6 +121,7 @@ const Leaderboard = () => {
 						)
 					}
 				</Container>
+
 			</div>
 		</div>
 	)
