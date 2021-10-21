@@ -1,13 +1,14 @@
 form {
-    position: fixed;
-    align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: center;
   }
   
   /* Full-width inputs */
   input[type=text], input[type=password] {
-    width: 100%;
-    margin: 8px 0;
+    width: 50%;
     display: inline-block;
+    align-content: center;
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
@@ -15,25 +16,17 @@ form {
   /* Set a style for all buttons */
   button {
     background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
+    border: black;
     cursor: pointer;
-    width: 50%;
-    position: center;
+    outline: black;
+    width: 100px;
+    margin-left: auto;
+    margin-right: 16px;
   }
   
   /* Add a hover effect for buttons */
   button:hover {
     opacity: 0.8;
-  }
-  
-  /* Extra style for the cancel button (red) */
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
   }
   
   /* Center the avatar image inside this container */
@@ -50,7 +43,8 @@ form {
   
   /* Add padding to containers */
   .container {
-    padding: 16px;
+    padding-top: 16rem;
+    text-align: center;
   }
   
   /* Change styles for span and cancel button on extra small screens */
@@ -58,8 +52,5 @@ form {
     span.psw {
       display: block;
       float: none;
-    }
-    .cancelbtn {
-      width: 100%;
-    }
+  }
   }
