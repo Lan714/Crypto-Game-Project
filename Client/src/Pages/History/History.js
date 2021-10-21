@@ -25,52 +25,43 @@ const History = () => {
 	const [weekNumState, setWeekNumState] = useState(0)
 	const [loading, setLoading] = useState(false)
 
-
-	const getHistory = (weekNum) => {
-		HistoryAPI.getHistory(weekNum)
+	const getTransaction = (transactions_id) => {
+		HistoryAPI.getTransaction(transactions_id)
 			.then((data) => {
-				let total_crypto = 0
-				for (let i = 0; i < data.data[0].crypto_balance.length; i++) {
-					total_crypto += data.data[0].crypto_balance[i].dollar_value
-				}
-				setWeekNumState(data.data[0].weekNumber)
-				setOverviewState([{
-					cash_balance: data.data[0].cash_balance,
-					coin_balance: total_crypto,
-					profit: data.data[0].profit
-				}])
-			})
-	}
-
-	const getTransaction = (weekNum) => {
-		HistoryAPI.getHistory(weekNum)
-			.then((data) => {
-				setTransactionState(data.data[0].transaction)
+				console.log(data)
+				setTransactionState(data.data)
 			})
 		setLoading(true)
 	}
 
+
+	const getHistory = (weekNum) => {
+		HistoryAPI.getHistory(weekNum)
+			.then((data) => {
+				setWeekNumState(data.data[0].weekNumber)
+				setOverviewState([{
+					cash_balance: data.data[0].cash_balance,
+					coin_balance: data.data[0].crypto_balances,
+					profit: data.data[0].profit
+				}])
+
+				getTransaction(data.data[0].transactions[0])
+			})
+
+	}
+
 	useEffect(() => {
+
 		HistoryAPI.getWeekNum()
 			.then(({ data: historys }) => {
 				historys = historys.sort()
 				setHistoryState({ ...historyState, historys })
 			})
-			.catch(err => window.location = '/')
-	}, [])
-
-	if (transcationState.length === 0) {
-		console.log('transactionState is empty')
-		HistoryAPI.getWeekNum()
-			.then((data) => {
-				getHistory(Math.max(data.data[0]))
-				HistoryAPI.getHistory(Math.max(data.data[0]))
-					.then((data1) => {
-						setTransactionState(data1.data[0].transaction)
-						setLoading(true)
-					})
+			.catch(err => {
+				console.log(err)
+				window.location = '/'
 			})
-	}
+	}, [])
 
 	const renderOverview = (overview, index) => {
 		return (
@@ -80,6 +71,7 @@ const History = () => {
 				<td>{overview.profit}</td>
 			</tr>
 		)
+
 	}
 
 	const renderTransaction = (transaction, index) => {
@@ -94,8 +86,6 @@ const History = () => {
 			</tr>
 		)
 	}
-
-	console.log(loading)
 
 	return (
 		<>
@@ -112,8 +102,7 @@ const History = () => {
 									{
 										historyState.historys.map((weekNumber) => (<DropdownWeeknumForm
 											weekNum={weekNumber}
-											getfunction={getHistory}
-											getfunction2={getTransaction} />))
+											getfunction={getHistory} />))
 									}
 								</Dropdown.Menu>
 							</Dropdown>
@@ -167,7 +156,7 @@ const History = () => {
 
 							: (
 								<div>
-									Loading................
+									Waiting for week number................
 									<ReactBootStrap.Spinner animation="grow" />
 								</div>
 							)
