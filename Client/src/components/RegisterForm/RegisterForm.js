@@ -28,7 +28,8 @@ const RegisterForm = () => {
 return (
 		<Form className="text-center">
 			<Form.Group className="mb-3" controlId="name">
-				<Form.Label style={{color: "white"}}>Name</Form.Label>
+				<Form.Label></Form.Label>
+
 				<Form.Control
 					type="text"
 					placeholder="Enter your name"
@@ -37,16 +38,18 @@ return (
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="email">
-				<Form.Label style={{color: "white"}}>Email</Form.Label>
+				<Form.Label></Form.Label>
+
 				<Form.Control
-					type="email"
+					type="text"
 					placeholder="Enter your email"
 					name="email"
 					value={userState.email}
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="username">
-				<Form.Label style={{color: "white"}}>Username</Form.Label>
+
+				<Form.Label></Form.Label>
 				<Form.Control
 					type="text"
 					placeholder="Enter your username"
@@ -55,7 +58,9 @@ return (
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="password">
-				<Form.Label style={{color: "white"}}>Password</Form.Label>
+
+				<Form.Label></Form.Label>
+
 				<Form.Control
 					type="password"
 					placeholder="Enter your password"
@@ -63,9 +68,18 @@ return (
 					value={userState.password}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Button className="btn"
-				variant="primary"
-				style={{inlineSize: "min-content"}}
+			<Form.Group className="mb-3" controlId="password">
+				<Form.Label></Form.Label>
+				<Form.Control
+					type="password"
+					placeholder="Re-enter your password"
+					name="password"
+					value={userState.password}
+					onChange={handleInputChange} />
+			</Form.Group>
+			<Button
+				variant="warning"
+
 				type="submit"
 				onClick={handleRegisterUser} >
 				Register
