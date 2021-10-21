@@ -2,7 +2,7 @@ import { useState } from 'react'
 import UserAPI from '../../utils/UserAPI'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-
+import './Register.css'
 
 
 const RegisterForm = () => {
