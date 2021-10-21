@@ -12,6 +12,11 @@ import Leaderboard from './Pages/Leaderboard';
 import AboutUs from './Pages/AboutUs';
 
 function App() {
+  const current = new Date()
+  console.log(current.getDate())
+  console.log(current.getMonth())
+  console.log(current.getFullYear())
+
   return (
     <Router>
       <div>
