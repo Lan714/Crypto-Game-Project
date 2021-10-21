@@ -26,10 +26,9 @@ const History = () => {
 	const [weekNumState, setWeekNumState] = useState(0)
 	const [loading, setLoading] = useState(false)
 
-	const getTransaction = (transactions_id) => {
-		HistoryAPI.getTransaction(transactions_id)
+	const getTransaction = (weekNum) => {
+		HistoryAPI.getTransaction(weekNum)
 			.then((data) => {
-				console.log(data)
 				setTransactionState(data.data)
 			})
 		setLoading(true)
@@ -46,7 +45,7 @@ const History = () => {
 					profit: data.data[0].profit
 				}])
 
-				getTransaction(data.data[0].transactions[0])
+				getTransaction(data.data[0].weekNumber)
 			})
 
 	}

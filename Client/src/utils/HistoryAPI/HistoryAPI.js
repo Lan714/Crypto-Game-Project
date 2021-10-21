@@ -22,7 +22,7 @@ const HistoryAPI = {
 		}
 	}),
 
-	getTransaction: (transactions_id) => axios.get(`api/history/transaction/${transactions_id}`, {
+	getTransaction: (weekNum) => axios.get(`api/history/transaction/${weekNum}`, {
 		headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}
