@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import UserAPI from '../../utils/UserAPI'
+import { useHistory } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './SignIn.css'
 
 
 const SignInForm = () => {
+
+	const history = useHistory()
+
 	const [userState, setUserState] = useState({
 		username: '',
 		password: ''
@@ -31,7 +35,7 @@ const SignInForm = () => {
 
 	return (
 		<Form>
-			<Form.Group className="mb-3" controlId="username">
+			<Form.Group className="mb-3 color-overlay d-flex justify-content-center align-items-center" controlId="username">
 				<Form.Label>Username</Form.Label>
 				<Form.Control
 					type="text"
@@ -58,7 +62,9 @@ const SignInForm = () => {
 			<Button id="register"
 				variant="warning"
 				type="button">
-				Register
+				<div onClick={() => history.push('/Register')} className="Register">
+				<span className="Register">Register</span>
+				</div>
 			</Button>
 		</Form>
 	)
