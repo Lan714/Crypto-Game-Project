@@ -53,42 +53,41 @@ router.put('/history/transaction/', passport.authenticate('jwt'), async function
 	let crypto_balances = historys.find(obj => obj.weekNumber === ingame_weeknumber).crypto_balances
 	let total = req.body.price * amount
 
-	let profit = cash_balance + crypto_balances - 1000
-
 	// able to make transaction
 	if (total <= cash_balance) {
-		if (req.body.side === 'sell') {
-			cash_balance += total
-			crypto_balances -= total
-		}
-		else {
-			crypto_balances += total
-			cash_balance -= total
-		}
+		crypto_balances += total
+		cash_balance -= total
 
-		// check if user already has the crypto in database
-		// await Crypto.findByIdAndUpdate({hitory:history_id, }, {
+		let profit = cash_balance + crypto_balances - 1000
 
-		// })
-
-		const crypto = await Crypto.create({ ...req.body, history: history_id })
-
-		const transaction = await Transaction.create({ ...req.body, date: currentdate, total: total, history: history_id })
-
-		// update balance
-		await History.findByIdAndUpdate(history_id, {
-			$push: { cryptos: crypto }, $push: { transactions: transaction }, cash_balance: cash_balance, crypto_balances: crypto_balances, profit: profit
-		})
+		Crypto.find({ history: history_id, crypto_name: crypto_name })
 			.then(data => {
-				res.json({
-					history: data,
-					message: 'History updated with new balances'
-				})
+				if (data) {
+					Crypto.findByIdAndUpdate(data[0]._id, { $inc: { amount: amount } })
+						.then(data => {
+							console.log(data)
+						})
+				}
+				else {
+					const crypto = Crypto.create({ ...req.body, history: history_id })
+					const transaction = Transaction.create({ ...req.body, date: currentdate, total: total, history: history_id })
+
+					// update balance
+					History.findByIdAndUpdate(history_id, {
+						$push: { cryptos: crypto }, $push: { transactions: transaction }, cash_balance: cash_balance, crypto_balances: crypto_balances, profit: profit
+					})
+						.then(data => {
+							res.json({
+								history: data,
+								message: 'History updated with new balances'
+							})
+						})
+						.catch(err => res.json({
+							err: err,
+							message: "unable to update balance"
+						}))
+				}
 			})
-			.catch(err => res.json({
-				err: err,
-				message: "unable to update balance"
-			}))
 	}
 	// not able to make transaction
 	else {
