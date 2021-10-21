@@ -57,7 +57,7 @@ const Leaderboard = () => {
 	}, [])
 
 	return (
-		<div className="homePg">
+		<div className="leaderboardPg">
 			<Navbar />
 			<div className="pgContent">
 				<Container id="lbHeader">
