@@ -2,7 +2,7 @@ import RegisterForm from '../../components/RegisterForm'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import BackgroundVideo from '../../components/BackgroundVideo/BackgroundVideo'
-
+// import CopyRightFooter from '../../components/CopyRightFooter'
 function Register() {
   const newLocal = <BackgroundVideo />
   return (
@@ -18,6 +18,7 @@ function Register() {
         <Container>
           <RegisterForm sm={3} id="Register" />
         </Container>
+        {/* <CopyRightFooter /> */}
       </div>
     </>
   )

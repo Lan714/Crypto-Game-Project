@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy } from '@fortawesome/free-solid-svg-icons'
 import * as ReactBootStrap from 'react-bootstrap'
 import './Leaderboard.css'
+import Footer2 from '../../components/Footer2'
 
 const Leaderboard = () => {
 	const [historyState, setHistoryState] = useState({
@@ -124,6 +125,7 @@ const Leaderboard = () => {
 				</Container>
 
 			</div>
+			<Footer2 />
 		</div>
 	)
 }
