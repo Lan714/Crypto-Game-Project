@@ -37,7 +37,9 @@ router.post('/history', passport.authenticate('jwt'), async function (req, res) 
 		}))
 })
 
-// laksdjflasjdfkolasjdfklasjdfljaskldfjasdlfjaskldfjlasdjf
+
+// Transaction Function........!!!!!!!!
+
 router.put('/history/transaction/', passport.authenticate('jwt'), async function (req, res) {
 	const currentdate = new Date()
 	var oneJan = new Date(currentdate.getFullYear(), 0, 1)
@@ -55,37 +57,48 @@ router.put('/history/transaction/', passport.authenticate('jwt'), async function
 
 	// selling function
 	if (req.body.side === 'sell') {
+
+		let sell_flag = true
 		// check if user is able to sell the coin and amount
-		await Crypto.find({ history: history_id, crypto_name: crypto_name })
+		await Crypto.find({ crypto_name: crypto_name })
 			.then(data => {
 				// if there is no crypto data in db or the amount in the crypto is less then req.body.amount
-				if (data.length === 0 || data.amount < amount) {
-					flag = false
+				if (data.length === 0 || data[0].amount < amount) {
+					sell_flag = false
+
 					res.json({
 						messagae: 'Not enough amount to sell'
 					})
 				}
 			})
+			.catch(err => console.log(err))
 		// Crypto.find and update Crypto and update crypto_balances, cash_balance
-		if (flag) {
-			await Crypto.findByIdAndUpdate({ history: history_id, crypto_name: crypto_name }, { $inc: { amount: -amount } })
+		if (sell_flag) {
+
+			const transaction = await Transaction.create({ ...req.body, date: currentdate, total: total, history: history_id })
+
+			await Crypto.find({ history: history_id, crypto_name: crypto_name })
 				.then(data => {
-					res.json({
-						crypto: data,
-						message: 'crypto selling amount updated'
-					})
+					Crypto.findByIdAndUpdate(data[0]._id, { $inc: { amount: -amount } })
+						.then(data => {
+							res.json({
+								crypto: data,
+								message: "Crypto amount updated"
+							})
+						})
 				})
+				.catch(err => console.log(err))
+
 			// update balance
 			crypto_balances -= total
 			cash_balance += total
 
 			let profit = cash_balance + crypto_balances - 1000
 
-			History.findByIdAndUpdate(history_id, {
+			await History.findByIdAndUpdate(history_id, {
 				$push: { transactions: transaction }, cash_balance: cash_balance, crypto_balances: crypto_balances, profit: profit
 			})
 				.then(data => {
-					console.log(data)
 					res.json({
 						history: data,
 						message: 'History updated with new balances'
@@ -96,6 +109,7 @@ router.put('/history/transaction/', passport.authenticate('jwt'), async function
 					message: "unable to update balance"
 				}))
 		}
+
 
 	}
 	// able to make transaction
@@ -150,7 +164,6 @@ router.put('/history/transaction/', passport.authenticate('jwt'), async function
 				$push: { transactions: transaction, cryptos: crypto }, cash_balance: cash_balance, crypto_balances: crypto_balances, profit: profit
 			})
 				.then(data => {
-					console.log(data)
 					res.json({
 						history: data,
 						message: 'History updated with new balances'
