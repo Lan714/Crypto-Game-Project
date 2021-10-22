@@ -7,6 +7,7 @@ const Footer = () => {
   return (
       <div className="footer">
         <div className="container" id="about">
+
           <div className="row">
             <div className="col-md-3 col-sm-6 info">
               <h4><FontAwesomeIcon icon={faInfoCircle} className="icon" />About CryptoMaster</h4>
