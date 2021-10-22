@@ -10,6 +10,9 @@ import './Leaderboard.css'
 import Footer2 from '../../components/Footer2'
 
 const Leaderboard = () => {
+	if (!localStorage.getItem('token')) {
+		window.location = '/signin'
+	}
 	const [historyState, setHistoryState] = useState({
 		weekNumber: '',
 		historys: []
@@ -123,7 +126,7 @@ const Leaderboard = () => {
 						)
 					}
 				</Container>
-			<Footer2 />
+				<Footer2 />
 			</div>
 		</div>
 	)

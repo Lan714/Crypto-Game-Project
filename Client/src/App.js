@@ -18,7 +18,7 @@ import CoinSummaryPage from './Pages/Crypto/CoinSummaryPage'
 
 
 function App() {
-  console.log(`The week number of the current date (${Ingame_weekNumber().currentdate}) is ${Ingame_weekNumber().ingame_weeknumber}.`);
+  console.log(`The week number of the current date (${Ingame_weekNumber().currentdate}) is ${Ingame_weekNumber().ingame_weeknumber}.`)
 
   return (
     <Router>
