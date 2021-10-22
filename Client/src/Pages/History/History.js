@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWallet } from '@fortawesome/free-solid-svg-icons'
 import * as ReactBootStrap from 'react-bootstrap'
 import './History.css'
+import Footer2 from '../../components/Footer2'
 
 const History = () => {
 	const [historyState, setHistoryState] = useState({
@@ -169,6 +170,7 @@ const History = () => {
 						)
 					}
 				</Container>
+				<Footer2 />
 			</div>
 		</div>
 	)

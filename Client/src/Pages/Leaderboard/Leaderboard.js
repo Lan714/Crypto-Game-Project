@@ -7,8 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy } from '@fortawesome/free-solid-svg-icons'
 import * as ReactBootStrap from 'react-bootstrap'
 import './Leaderboard.css'
+import Footer2 from '../../components/Footer2'
 
 const Leaderboard = () => {
+	if (!localStorage.getItem('token')) {
+		window.location = '/signin'
+	}
 	const [historyState, setHistoryState] = useState({
 		weekNumber: '',
 		historys: []
@@ -57,7 +61,7 @@ const Leaderboard = () => {
 	}, [])
 
 	return (
-		<div className="homePg">
+		<div className="leaderboardPg">
 			<Navbar />
 			<div className="pgContent">
 				<Container id="lbHeader">
@@ -122,7 +126,7 @@ const Leaderboard = () => {
 						)
 					}
 				</Container>
-
+				<Footer2 />
 			</div>
 		</div>
 	)

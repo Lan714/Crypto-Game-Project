@@ -1,6 +1,6 @@
 import Navbar from '../../components/NavBar'
 import './Home.css'
-
+import Footer from '../../components/Footer/Footer'
 const Home = () => {
 	if (!localStorage.getItem('token')) {
 		window.location = '/signin'
@@ -10,6 +10,7 @@ const Home = () => {
 			<Navbar />
 			<div className="pgContent">
 				Hello world
+			<Footer />
 			</div>
 		</div>
 	)
