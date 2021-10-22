@@ -60,7 +60,7 @@ router.put('/history/transaction/', passport.authenticate('jwt'), async function
 		await Crypto.find({ crypto_name: crypto_name })
 			.then(data => {
 				// if there is no crypto data in db or the amount in the crypto is less then req.body.amount
-				if (data.length === 0 || data[0].amount < amount) {
+				if (data.length === 0 || data[0].amount === 0 || data[0].amount < amount) {
 					sell_flag = false
 					res.json({
 						messagae: 'Not enough amount to sell'
