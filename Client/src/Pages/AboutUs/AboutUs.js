@@ -13,7 +13,7 @@ function AboutUs() {
 				<Container id="aboutUsHeader">
 					<Row>
 						<Col id="aboutUsTitle">
-							<FontAwesomeIcon icon={faTrophy} id="aboutUsIcon" />
+							<FontAwesomeIcon icon={faUsers} id="aboutUsIcon" />
 							About Us
 						</Col>
 					</Row>
