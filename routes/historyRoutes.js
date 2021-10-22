@@ -37,7 +37,9 @@ router.post('/history', passport.authenticate('jwt'), async function (req, res) 
 		}))
 })
 
+
 // Transaction Function........!!!!!!!!
+
 router.put('/history/transaction/', passport.authenticate('jwt'), async function (req, res) {
 	const currentdate = new Date()
 	var oneJan = new Date(currentdate.getFullYear(), 0, 1)
@@ -55,6 +57,7 @@ router.put('/history/transaction/', passport.authenticate('jwt'), async function
 
 	// selling function
 	if (req.body.side === 'sell') {
+
 		let sell_flag = true
 		// check if user is able to sell the coin and amount
 		await Crypto.find({ crypto_name: crypto_name })
@@ -62,6 +65,7 @@ router.put('/history/transaction/', passport.authenticate('jwt'), async function
 				// if there is no crypto data in db or the amount in the crypto is less then req.body.amount
 				if (data.length === 0 || data[0].amount < amount) {
 					sell_flag = false
+
 					res.json({
 						messagae: 'Not enough amount to sell'
 					})
@@ -106,6 +110,7 @@ router.put('/history/transaction/', passport.authenticate('jwt'), async function
 				}))
 		}
 
+
 	}
 	// able to make transaction
 	else if (total <= cash_balance) {
@@ -136,6 +141,7 @@ router.put('/history/transaction/', passport.authenticate('jwt'), async function
 						$push: { transactions: transaction }, cash_balance: cash_balance, crypto_balances: crypto_balances, profit: profit
 					})
 						.then(data => {
+							console.log(data)
 							res.json({
 								history: data,
 								message: 'History updated with new balances'
