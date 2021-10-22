@@ -37,6 +37,7 @@
     "passport-local-mongoose": "^6.1.0",
     "rc-table": "^7.19.0",
     "react-bootstrap": "^2.0.0-rc.1",
-    "react-js-stickynav": "^1.0.2"
+    "react-js-stickynav": "^1.0.2",
+    "react-touch-carousel": "^0.10.2"
   }
 }

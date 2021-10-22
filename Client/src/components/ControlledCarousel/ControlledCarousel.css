@@ -1,0 +1,14 @@
+html, body {
+  margin: 0;
+}
+
+.ui-center {
+  text-align: center;
+}
+
+h1 {
+  margin: 1.5em;
+  font-size: 24px;
+  text-align: center;
+
+}
