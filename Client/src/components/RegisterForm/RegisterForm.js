@@ -21,11 +21,12 @@ const RegisterForm = () => {
 			.then(() => {
 				alert('User Registered!')
 				setUserState({ ...userState, name: '', email: '', username: '', password: '' })
+				window.location = '/signin'
 			})
 			.catch(err => console.error(err))
 	}
 
-return (
+	return (
 		<Form className="text-center">
 			<Form.Group className="mb-3" controlId="name">
 				<Form.Label></Form.Label>
