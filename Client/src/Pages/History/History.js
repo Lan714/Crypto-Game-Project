@@ -170,8 +170,8 @@ const History = () => {
 						)
 					}
 				</Container>
+				<Footer2 />
 			</div>
-			<Footer2 />
 		</div>
 	)
 }

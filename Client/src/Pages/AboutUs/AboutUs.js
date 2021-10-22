@@ -7,8 +7,8 @@ const AboutUs = () => {
 			<Navbar />
 			<div className="pgContent">
 				About Us Page
-			</div>
 			<Footer2 />
+			</div>
 		</div>
 	)
 }

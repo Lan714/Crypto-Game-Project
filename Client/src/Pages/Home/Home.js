@@ -10,8 +10,8 @@ const Home = () => {
 			<Navbar />
 			<div className="pgContent">
 				Hello world
-			</div>
 			<Footer />
+			</div>
 		</div>
 	)
 }
