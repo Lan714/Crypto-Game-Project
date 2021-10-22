@@ -1,22 +1,20 @@
-.footer {
-  background: #152F4F;
-  color: rgb(121, 117, 117);
-  font-size: 18px;
+.container {
+  margin-top: 0;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 10em;
+  height: 15rem;
+  width: 100%;
+  text-align: center;
+  color: rgb(174, 179, 179);
 }
 
-.links {
-  color: rgba(255, 255, 255, .1);
-  transition: color .2s;
+.icon {
+  margin-right: 1rem;
+  color: rgb(174, 179, 179);
 }
 
-.info {
-  font-size: 25px;
-}
-
-.Contact {
-  font-size: 18px;
-}
-
-.copyright {
-  border-top: 1px solid rgba(255, 255, 255, .1);
+a {
+  color: rgb(174, 179, 179);
 }

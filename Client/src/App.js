@@ -27,7 +27,6 @@ function App() {
           <Route exact path='/'>
             {/* <Header /> */}
             <Home />
-            <Footer />
           </Route>
           <Route path='/register'>
             <Register />
