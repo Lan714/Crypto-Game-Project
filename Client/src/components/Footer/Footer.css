@@ -18,3 +18,8 @@
 a {
   color: rgb(174, 179, 179);
 }
+
+.links a {
+  text-decoration: none;
+  color: rgb(174, 179, 179);
+}
