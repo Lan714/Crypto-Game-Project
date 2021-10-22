@@ -14,5 +14,28 @@ body {
   height: 100%;
   width: calc(100% - 5rem);
   left: 5rem;
-  padding: 1rem;
+  padding: 1rem
+}
+
+#aboutUsHeader {
+  color: white;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xxx-large;
+}
+
+#aboutUsIcon {
+  margin-right: 1rem;
+  color: yellow;
+}
+
+#howToPlay {
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
 }

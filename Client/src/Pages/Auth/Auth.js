@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import BackgroundVideo from '../../components/BackgroundVideo/BackgroundVideo'
 
+
 const Auth = () => {
   const newLocal = <BackgroundVideo />
   return (

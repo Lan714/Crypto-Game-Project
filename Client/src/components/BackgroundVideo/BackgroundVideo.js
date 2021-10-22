@@ -1,17 +1,31 @@
-import React from 'react'
-import "./BackgroundVideo.css"
-import globe from "./Video/globe.mp4"
+import "./BackgroundVideo.css";
+import Video from "./Video/globe.mp4"
+import Poster from "./Video/poster.jpg"
+import React, {Component} from 'react';
 
-const BackgroundVideo = () => {
-    return (
-        <>
+
+class BackgroundVideo extends Component {
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            videoURL: 'globe.mp4'
+        }
+    }
+
+    render () {
+        return (
           <div className="App">
-            <video id="globe" autoPlay="autoplay" loop="loop" muted>
-            <source src={globe} type="video/mp4"/>
-            </video>
-          </div>
-        </>
-    )
-}
-    
-export default BackgroundVideo
+          <video id="BackgroundVideo" autoPlay="autoplay" loop="loop" muted poster={Poster}>
+          <source src={Video} type="video/mp4"/>
+          <source src={Poster} type="video/ogg" />
+          </video>
+        </div>
+        )
+    }
+};
+
+export default BackgroundVideo;
+
+
+
