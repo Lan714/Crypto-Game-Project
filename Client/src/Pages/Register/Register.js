@@ -1,28 +1,24 @@
 import RegisterForm from '../../components/RegisterForm'
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import BackgroundVideo from '../../components/BackgroundVideo/BackgroundVideo'
 
-const Register = () => {
+function Register() {
   const newLocal = <BackgroundVideo />
   return (
     <>
-      <Card className="register">
-        <Card.Body>
+      <Card className="text-center" bg="dark" text="white">
+        <Card.Body size="lg">
           <Card.Title>CryptoMaster</Card.Title>
         </Card.Body>
-        <Card.Footer className="text-muted">Become a Crypto expert here!</Card.Footer>
+        <Card.Footer className="text-muted" text="white">New to CryptoMaster? Sign-up is free and it's easy!</Card.Footer>
       </Card>
-      <BackgroundVideo/>
-      <Container>
-        <Row>
-          <Col sm={6}>
-            <RegisterForm />
-          </Col>
-        </Row>
-      </Container>
+      <div>
+        <BackgroundVideo />
+        <Container>
+          <RegisterForm sm={3} id="Register" />
+        </Container>
+      </div>
     </>
   )
 }

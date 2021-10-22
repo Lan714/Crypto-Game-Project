@@ -9,10 +9,15 @@ import Home from './Pages/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import History from './Pages/History'
+import Crypto from './Pages/Crypto'
 import Leaderboard from './Pages/Leaderboard';
 import AboutUs from './Pages/AboutUs';
+import Ingame_weekNumber from './components/Ingame_weekNumber'
+
 
 function App() {
+  console.log(`The week number of the current date (${Ingame_weekNumber().currentdate}) is ${Ingame_weekNumber().ingame_weeknumber}.`);
+
   return (
     <Router>
       <div>
@@ -26,6 +31,9 @@ function App() {
           </Route>
           <Route path='/signIn'>
             <Auth />
+          </Route>
+          <Route path='/Crypto'>
+            <Crypto />
           </Route>
           <Route path='/history'>
             <History />
