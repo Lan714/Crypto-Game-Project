@@ -123,9 +123,8 @@ const Leaderboard = () => {
 						)
 					}
 				</Container>
-
-			</div>
 			<Footer2 />
+			</div>
 		</div>
 	)
 }
