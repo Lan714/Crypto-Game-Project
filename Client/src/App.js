@@ -9,10 +9,12 @@ import Home from './Pages/Home'
 // import Header from './components/Header'
 import Footer from './components/Footer'
 import History from './Pages/History'
-import Crypto from './Pages/Crypto'
+// import Crypto from './Pages/Crypto'
 import Leaderboard from './Pages/Leaderboard';
 import AboutUs from './Pages/AboutUs';
 import Ingame_weekNumber from './components/Ingame_weekNumber'
+import CoinDetailPage from './Pages/Crypto/CoinDetailPage'
+import CoinSummaryPage from './Pages/Crypto/CoinSummaryPage'
 
 
 function App() {
@@ -33,9 +35,9 @@ function App() {
           <Route path='/signIn'>
             <Auth />
           </Route>
-          <Route path='/Crypto'>
+          {/* <Route path='/Crypto'>
             <Crypto />
-          </Route>
+          </Route> */}
           <Route path='/history'>
             <History />
           </Route>
@@ -45,6 +47,7 @@ function App() {
           <Route path='/AboutUs'>
             <AboutUs />
           </Route>
+          <Route exact path='/' component={CoinSummaryPage}/>
         </Switch>
       </div>
     </Router>

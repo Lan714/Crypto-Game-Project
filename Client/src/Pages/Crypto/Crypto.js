@@ -1,6 +1,6 @@
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import CryptoAPI from '../../utils/CryptoAPI'
+// import axios from 'axios'
+// import { useState, useEffect } from 'react'
+// import CryptoAPI from '../../utils/CryptoAPI'
 
 
 
@@ -11,4 +11,4 @@ import CryptoAPI from '../../utils/CryptoAPI'
 //   })
 // }
 
-export default Crypto
+// export default Crypto
