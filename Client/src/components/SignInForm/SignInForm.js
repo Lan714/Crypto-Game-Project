@@ -3,6 +3,7 @@ import UserAPI from '../../utils/UserAPI'
 import { useHistory } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import './SignIn.css'
 
 
@@ -36,7 +37,6 @@ const SignInForm = () => {
 	return (
 		<Form>
 			<Form.Group className="mb-3 color-overlay d-flex justify-content-center align-items-center" controlId="username">
-				<Form.Label>Username</Form.Label>
 				<Form.Control
 					type="text"
 					placeholder="Enter your username"
@@ -45,7 +45,6 @@ const SignInForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="password">
-				<Form.Label>Password</Form.Label>
 				<Form.Control
 					type="password"
 					placeholder="Enter your password"
@@ -53,19 +52,21 @@ const SignInForm = () => {
 					value={userState.password}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Button id="signIn"
-				variant="warning"
-				type="submit"
-				onClick={handleLoginUser} >
-				Sign In
-			</Button>
-			<Button id="register"
-				variant="warning"
-				type="button">
-				<div onClick={() => history.push('/Register')} className="Register">
-				<span className="Register">Register</span>
-				</div>
-			</Button>
+			<ButtonGroup>
+				<Button id="signIn"
+					variant="warning"
+					type="submit"
+					onClick={handleLoginUser} >
+					Sign In
+				</Button>
+				<Button id="register"
+					variant="warning"
+					type="button">
+					<div onClick={() => history.push('/register')} className="Register">
+						<span className="Register">Register</span>
+					</div>
+				</Button>
+			</ButtonGroup>
 		</Form>
 	)
 }
