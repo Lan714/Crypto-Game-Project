@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import UserAPI from '../../utils/UserAPI'
+import HistoryAPI from '../../utils/HistoryAPI'
 import { useHistory } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import './SignIn.css'
 import { FormGroup } from 'react-bootstrap'
+
+import Ingame_weekNumber from '../Ingame_weekNumber'
 
 
 const SignInForm = () => {
@@ -19,17 +22,31 @@ const SignInForm = () => {
 
 	const handleInputChange = ({ target: { name, value } }) => setUserState({ ...userState, [name]: value })
 
+	const checkHistory = event => {
+		alert('checkHistory function!')
+		HistoryAPI.getHistory(Ingame_weekNumber().ingame_weeknumber)
+			.then(data => {
+				console.log(data)
+				if (data.length === 0) {
+					HistoryAPI.create()
+				}
+			})
+			.catch(err => console.log(err))
+	}
+
 	const handleLoginUser = event => {
 		event.preventDefault()
 		UserAPI.login(userState)
 			.then(({ data: token }) => {
 				if (token) {
+					// Check if there is existed history model
 					localStorage.setItem('token', token)
+					checkHistory()
 					setUserState({ ...userState, name: '', email: '', username: '', password: '' })
 					window.location = '/'
 				}
 				else {
-					alert('User unable to login idk why')
+					alert('User unable to login')
 				}
 			})
 			.catch(err => console.error(err))
