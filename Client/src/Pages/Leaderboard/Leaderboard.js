@@ -8,7 +8,6 @@ import { faTrophy } from '@fortawesome/free-solid-svg-icons'
 import * as ReactBootStrap from 'react-bootstrap'
 import './Leaderboard.css'
 import Footer2 from '../../components/Footer2'
-import BackgroundVideo from '../../components/BackgroundVideo/BackgroundVideo'
 
 const Leaderboard = () => {
 	if (!localStorage.getItem('token')) {
@@ -64,7 +63,6 @@ const Leaderboard = () => {
 	return (
 		<div className="leaderboardPg">
 			<Navbar />
-			<BackgroundVideo />
 			<div className="pgContent">
 				<Container id="lbHeader">
 					<Row>

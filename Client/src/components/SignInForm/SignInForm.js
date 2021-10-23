@@ -52,21 +52,19 @@ const SignInForm = () => {
 					value={userState.password}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<ButtonGroup>
-				<Button id="signIn"
-					variant="warning"
-					type="submit"
-					onClick={handleLoginUser} >
-					Sign In
-				</Button>
-				<Button id="register"
-					variant="outline-warning"
-					type="button">
-					<div onClick={() => history.push('/register')} className="Register">
-						<span className="Register">Register</span>
-					</div>
-				</Button>
-			</ButtonGroup>
+			<Button id="signIn"
+				variant="warning"
+				type="submit"
+				onClick={handleLoginUser} >
+				Sign In
+			</Button>
+			<Button id="register"
+				variant="outline-warning"
+				type="button">
+				<div onClick={() => history.push('/register')} className="Register">
+					<span className="Register">Register</span>
+				</div>
+			</Button>
 		</Form>
 	)
 }

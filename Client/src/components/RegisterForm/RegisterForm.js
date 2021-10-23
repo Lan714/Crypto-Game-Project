@@ -90,7 +90,6 @@ const RegisterForm = () => {
 					value={userState.password2}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<ButtonGroup>
 				<Button id="register"
 					variant="outline-warning"
 					type="button">
@@ -104,7 +103,6 @@ const RegisterForm = () => {
 					onClick={handleRegisterUser} >
 					Register
 				</Button>
-			</ButtonGroup>
 		</Form>
 	)
 }

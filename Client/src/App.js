@@ -15,7 +15,7 @@ import AboutUs from './Pages/AboutUs';
 import Ingame_weekNumber from './components/Ingame_weekNumber'
 import CoinDetailPage from './Pages/Crypto/CoinDetailPage'
 import CoinSummaryPage from './Pages/Crypto/CoinSummaryPage'
-
+import BackgroundVideo from './components/BackgroundVideo/BackgroundVideo'
 
 function App() {
   console.log(`The week number of the current date (${Ingame_weekNumber().currentdate}) is ${Ingame_weekNumber().ingame_weeknumber}.`)
@@ -29,18 +29,22 @@ function App() {
             <Home />
           </Route>
           <Route path='/register'>
+            <BackgroundVideo />
             <Register />
           </Route>
           <Route path='/signIn'>
+            <BackgroundVideo />
             <Auth />
           </Route>
           {/* <Route path='/Crypto'>
             <Crypto />
           </Route> */}
           <Route path='/history'>
+            <BackgroundVideo />
             <History />
           </Route>
           <Route path='/Leaderboard'>
+            <BackgroundVideo />
             <Leaderboard />
           </Route>
           <Route path='/AboutUs'>
