@@ -39,13 +39,24 @@ const Leaderboard = () => {
 	}
 
 	const renderRank = (rank, index) => {
-		return (
-			<tr key={index}>
-				<td>{rank.rank}</td>
-				<td>{rank.username}</td>
-				<td>{rank.profit}</td>
-			</tr>
-		)
+		if (rank.rank === 1) {
+			return (
+				<tr key={index}>
+					<td><FontAwesomeIcon icon={faTrophy} id="lbIcon" /></td>
+					<td>{rank.username}</td>
+					<td>{rank.profit}</td>
+				</tr>
+			)
+		}
+		else {
+			return (
+				<tr key={index}>
+					<td>{rank.rank}</td>
+					<td>{rank.username}</td>
+					<td>{rank.profit}</td>
+				</tr>
+			)
+		}
 	}
 
 	useEffect(() => {
