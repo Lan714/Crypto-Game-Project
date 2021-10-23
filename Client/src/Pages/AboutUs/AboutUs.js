@@ -1,7 +1,6 @@
 import Navbar from '../../components/NavBar'
 import './AboutUs.css'
 import Footer2 from '../../components/Footer2'
-import BackgroundVideo from '../../components/BackgroundVideo/BackgroundVideo'
 
 const AboutUs = () => {
 	if (!localStorage.getItem('token')) {
@@ -10,7 +9,6 @@ const AboutUs = () => {
 	return (
 		<div className="aboutUsPg">
 			<Navbar />
-			<BackgroundVideo />
 			<div className="pgContent">
 				About Us Page
 				<Footer2 />
