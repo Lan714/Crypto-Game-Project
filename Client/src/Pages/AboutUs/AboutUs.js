@@ -12,19 +12,26 @@ function AboutUs() {
 			<div className="pgContent"> <BackgroundVideo/>
 				<Container id="aboutUsHeader">
 						<Col id="aboutUsTitle">
-							<FontAwesomeIcon icon={"fas fa-user"} id="aboutUsIcon" />
+							<p class="text-warning" FontAwesomeIcon icon={"fas fa-user"} id="aboutUsIcon" />
 							About Us
 						</Col>
 				</Container>
 				<Container id="howToPlay">
-					<Row>
+					<Row top="xs" xs={12}>
 						<Col id="howToPlay">
-							How to Play CryptoMaster
+						<h3>How to Play CryptoMaster</h3> 							
 						</Col>
-					</Row>
+					</Row>									
+				</Container>
+				<Container id="Instructions">
+					<Row sm={8}>
+						<Col id="Instructions">	
+						<p><h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6></p>														
+						</Col>
+					</Row>				
 				</Container>
 				<Container id="ControlledCarousel">
-					<Row>
+					<Row xs={12}>
 						<Col id="Carousel">
 							<ControlledCarousel/>
 						</Col>

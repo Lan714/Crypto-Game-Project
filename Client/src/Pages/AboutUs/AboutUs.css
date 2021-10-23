@@ -1,13 +1,16 @@
+
 .aboutUsPg {
   width: 100vw;
   height: 100vh;
   font-family: 'Roboto Slab', serif;
+  row-gap: 0;
 }
 
 body {
   margin: 0;
   padding: 0;
   background: #002F67;
+  row-gap: 0;
 }
 
 .pgContent {
@@ -17,25 +20,21 @@ body {
   left: 5rem;
   padding: 0;
   margin-top: 0rem !important;
+  row-gap: 0;
 }
 
 #aboutUsHeader {
-  color: yellow;
+  color: #ffcc00;
   font-weight: bolder;
   text-shadow: grey;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: xxx-large;
+  font-size: xx-large;
   margin-top: 0rem !important;
 	font-size: 56px;
-	-webkit-text-stroke: 1px #282828;
 	text-shadow: 0px 4px 4px #282828;
-}
-
-#aboutUsIcon {
-  margin-right: 1rem;
-  color: yellow;
+  row-gap: 0;
 }
 
 #howToPlay {
@@ -45,6 +44,8 @@ body {
   align-items: center;
   justify-content: center;
   font-size: xx-large;
+  text-shadow: 0px 2px 2px yellow;
+
 }
 
 #ControlledCarousel {
@@ -52,4 +53,13 @@ body {
   display: absolute;
   height: 100%;
   width: 50%;
+}
+
+#Instructions {
+  color: white;
+}
+
+#container {
+    display: flex;
+    gap: 10%;
 }
