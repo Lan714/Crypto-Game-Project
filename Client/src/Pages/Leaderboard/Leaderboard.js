@@ -8,7 +8,6 @@ import { faTrophy } from '@fortawesome/free-solid-svg-icons'
 import * as ReactBootStrap from 'react-bootstrap'
 import './Leaderboard.css'
 import Footer2 from '../../components/Footer2'
-import BackgroundVideo from '../../components/BackgroundVideo/BackgroundVideo'
 
 const Leaderboard = () => {
 	if (!localStorage.getItem('token')) {
@@ -36,17 +35,27 @@ const Leaderboard = () => {
 			.catch(err => {
 				console.log(err)
 			})
-
 	}
 
 	const renderRank = (rank, index) => {
-		return (
-			<tr key={index}>
-				<td>{rank.rank}</td>
-				<td>{rank.username}</td>
-				<td>{rank.profit}</td>
-			</tr>
-		)
+		if (rank.rank === 1) {
+			return (
+				<tr key={index}>
+					<td><FontAwesomeIcon icon={faTrophy} id="lbIcon" /></td>
+					<td>{rank.username}</td>
+					<td>{rank.profit}</td>
+				</tr>
+			)
+		}
+		else {
+			return (
+				<tr key={index}>
+					<td>{rank.rank}</td>
+					<td>{rank.username}</td>
+					<td>{rank.profit}</td>
+				</tr>
+			)
+		}
 	}
 
 	useEffect(() => {
@@ -64,7 +73,6 @@ const Leaderboard = () => {
 	return (
 		<div className="leaderboardPg">
 			<Navbar />
-			<BackgroundVideo />
 			<div className="pgContent">
 				<Container id="lbHeader">
 					<Row>

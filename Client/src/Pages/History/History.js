@@ -8,7 +8,6 @@ import { faWallet } from '@fortawesome/free-solid-svg-icons'
 import * as ReactBootStrap from 'react-bootstrap'
 import './History.css'
 import Footer2 from '../../components/Footer2'
-import BackgroundVideo from '../../components/BackgroundVideo/BackgroundVideo'
 
 
 const History = () => {
@@ -75,22 +74,35 @@ const History = () => {
 	}
 
 	const renderTransaction = (transaction, index) => {
-		return (
-			<tr key={index}>
-				<td>{transaction.date}</td>
-				<td>{transaction.crypto_name}</td>
-				<td>{transaction.side}</td>
-				<td>{transaction.price}</td>
-				<td>{transaction.amount}</td>
-				<td>{transaction.total}</td>
-			</tr>
-		)
+		if (transaction.side === 'sell') {
+			return (
+				<tr key={index}>
+					<td>{transaction.date}</td>
+					<td>{transaction.crypto_name}</td>
+					<td style={{ background: 'green' }}>{transaction.side}</td>
+					<td>{transaction.price}</td>
+					<td>{transaction.amount}</td>
+					<td>{transaction.total}</td>
+				</tr>
+			)
+		}
+		else {
+			return (
+				<tr key={index}>
+					<td>{transaction.date}</td>
+					<td>{transaction.crypto_name}</td>
+					<td style={{ background: 'red' }}>{transaction.side}</td>
+					<td>{transaction.price}</td>
+					<td>{transaction.amount}</td>
+					<td>{transaction.total}</td>
+				</tr>
+			)
+		}
 	}
 
 	return (
 		<div className="historyPg">
 			<Navbar />
-			<BackgroundVideo />
 			<div className="pgContent">
 				<Container id="histHeader">
 					<Row>
