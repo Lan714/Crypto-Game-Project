@@ -92,7 +92,7 @@ const RegisterForm = () => {
 			</Form.Group>
 			<ButtonGroup>
 				<Button id="register"
-					variant="warning"
+					variant="outline-warning"
 					type="button">
 					<div onClick={() => history.push('/signin')} className="Register">
 						<span className="Register">Sign In</span>
@@ -110,4 +110,3 @@ const RegisterForm = () => {
 }
 
 export default RegisterForm
-

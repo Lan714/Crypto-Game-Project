@@ -60,7 +60,7 @@ const SignInForm = () => {
 					Sign In
 				</Button>
 				<Button id="register"
-					variant="warning"
+					variant="outline-warning"
 					type="button">
 					<div onClick={() => history.push('/register')} className="Register">
 						<span className="Register">Register</span>
