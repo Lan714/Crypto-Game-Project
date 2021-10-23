@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './SignIn.css'
+import { FormGroup } from 'react-bootstrap'
 
 
 const SignInForm = () => {
@@ -34,9 +35,10 @@ const SignInForm = () => {
 	}
 
 	return (
-		<Form>
-			<Form.Group className="mb-3 color-overlay d-flex justify-content-center align-items-center" controlId="username">
-				<Form.Label>Username</Form.Label>
+		<div className="olor-overlay d-flex justify-content-center align-items-center">
+		<Form classname="rounded p-4 p-sm-3">
+			<Form.Group className="mb-3 c" controlId="username">
+				<Form.Label>Username </Form.Label>
 				<Form.Control
 					type="text"
 					placeholder="Enter your username"
@@ -45,7 +47,7 @@ const SignInForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="password">
-				<Form.Label>Password</Form.Label>
+				<Form.Label>Password </Form.Label>
 				<Form.Control
 					type="password"
 					placeholder="Enter your password"
@@ -53,13 +55,17 @@ const SignInForm = () => {
 					value={userState.password}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Button id="signIn"
+			<Form.Group className="mb-3"
+			controlId="formBasicCheckbox"> 
+			<Form.Check type="checkbox" label="Remember Me"/>
+			</Form.Group>
+			<Button id="signIn button"
 				variant="warning"
 				type="submit"
 				onClick={handleLoginUser} >
 				Sign In
 			</Button>
-			<Button id="register"
+			<Button id="register button"
 				variant="warning"
 				type="button">
 				<div onClick={() => history.push('/Register')} className="Register">
@@ -67,6 +73,7 @@ const SignInForm = () => {
 				</div>
 			</Button>
 		</Form>
+		</div>
 	)
 }
 
