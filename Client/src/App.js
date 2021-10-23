@@ -26,6 +26,7 @@ function App() {
         <Switch>
           <Route exact path='/'>
             {/* <Header /> */}
+            <BackgroundVideo />
             <Home />
           </Route>
           <Route path='/register'>
@@ -48,9 +49,10 @@ function App() {
             <Leaderboard />
           </Route>
           <Route path='/AboutUs'>
+            <BackgroundVideo />
             <AboutUs />
           </Route>
-          <Route exact path='/' component={CoinSummaryPage}/>
+          <Route exact path='/' component={CoinSummaryPage} />
         </Switch>
       </div>
     </Router>
