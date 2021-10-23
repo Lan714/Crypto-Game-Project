@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Jayeon from './Image/jay_avatar.png'
 import Shannon from './Image/shannon_avatar.png'
+import Samantha from './Image/samantha_avatar.png'
 import './ControlledCarousel.css';
 
 function ControlledCarousel() {
@@ -30,7 +31,7 @@ function ControlledCarousel() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={2000}>
-          <img id="Image" className="d-block w-100" src="https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"/>
+          <img id="Image" className="d-block w-100" src={Samantha}/>
           <Carousel.Caption>
             <h3>Samantha Mack</h3>
           </Carousel.Caption>
