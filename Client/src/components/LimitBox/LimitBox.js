@@ -8,27 +8,71 @@ import Button from 'react-bootstrap/Button'
 import Ingame_weekNumber from '../Ingame_weekNumber'
 import './LimitBox.css'
 
-const RegisterForm = () => {
-	const history = useHistory()
+const LimitBox = () => {
+	const crypto_name = "TESTING"
+	const real_time_price = 200.0
 
 	const [priceState, setPriceState] = useState({
-		real_time_price: '',
-		amount: ''
+		real_time_price: real_time_price,
+		sell_amount: 0.0,
+		buy_amout: 0.0
 	})
 
 
 	const handleInputChange = ({ target: { name, value } }) => setPriceState({ ...priceState, [name]: value })
 
-	const handleSell = () => {
-		alert('sell clicked')
+	const handleSell = event => {
+		event.preventDefault()
+
+		if (priceState.amount === 0.0) {
+			alert('Put Amount!')
+		}
+		else {
+			let body = {
+				"crypto_name": crypto_name,
+				"side": "sell",
+				"price": real_time_price,
+				"amount": priceState.sell_amount
+			}
+
+			HistoryAPI.pushTransaction(body)
+				.then(data => {
+					alert('Selling Transaction success!')
+					setPriceState({
+						...priceState, real_time_price: real_time_price,
+						sell_amount: 0.0,
+						buy_amout: 0.0
+					})
+				})
+				.catch(err => console.log(err))
+		}
 	}
 
 	const handleBuy = event => {
 		event.preventDefault()
-		alert(`ingame_weeknum: ${Ingame_weekNumber().ingame_weeknumber} buy clicked!`)
-		HistoryAPI.pushTransaction()
-			.then(data => console.log(data))
-			.catch(err => console.log(err))
+
+		if (priceState.amount === 0.0) {
+			alert('Put Amount!')
+		}
+		else {
+			let body = {
+				"crypto_name": crypto_name,
+				"side": "buy",
+				"price": real_time_price,
+				"amount": priceState.buy_amout
+			}
+
+			HistoryAPI.pushTransaction(body)
+				.then(data => {
+					alert('Buying Transaction success!')
+					setPriceState({
+						...priceState, real_time_price: real_time_price,
+						sell_amount: 0.0,
+						buy_amout: 0.0
+					})
+				})
+				.catch(err => console.log(err))
+		}
 
 	}
 
@@ -38,6 +82,9 @@ const RegisterForm = () => {
 				<Card style={{ width: '18rem' }}>
 					<Card.Body>
 						<Form.Group className="mb-3 c" controlId="real-time-price">
+							<Form.Label column sm="2">
+								Price
+							</Form.Label>
 							<Form.Control
 								type="text"
 								placeholder="Real time price"
@@ -45,13 +92,26 @@ const RegisterForm = () => {
 								value={priceState.real_time_price}
 								onChange={handleInputChange} />
 						</Form.Group>
-						<Form.Group className="mb-3" controlId="amount">
+						<Form.Group className="mb-3" controlId="buy_amout">
+							<Form.Label column sm="2">
+								Amount
+							</Form.Label>
 							<Form.Control
 								type="text"
 								placeholder="Amount"
-								name="amount"
-								value={priceState.amount}
+								name="buy_amout"
+								value={priceState.buy_amout}
 								onChange={handleInputChange} />
+						</Form.Group>
+						<Form.Group className="mb-3" controlId="total">
+							<Form.Label column sm="2">
+								Total
+							</Form.Label>
+							<Form.Control
+								type="text"
+								placeholder="Total"
+								name="total"
+								value={priceState.buy_amout * real_time_price} />
 						</Form.Group>
 						<Button
 							variant="warning"
@@ -62,6 +122,9 @@ const RegisterForm = () => {
 				<Card style={{ width: '18rem' }}>
 					<Card.Body>
 						<Form.Group className="mb-3 c" controlId="real-time-price">
+							<Form.Label column sm="2">
+								Price
+							</Form.Label>
 							<Form.Control
 								type="text"
 								placeholder="Real time price"
@@ -69,13 +132,26 @@ const RegisterForm = () => {
 								value={priceState.real_time_price}
 								onChange={handleInputChange} />
 						</Form.Group>
-						<Form.Group className="mb-3" controlId="amount">
+						<Form.Group className="mb-3" controlId="sell_amount">
+							<Form.Label column sm="2">
+								Amount
+							</Form.Label>
 							<Form.Control
 								type="text"
 								placeholder="Amount"
-								name="amount"
-								value={priceState.amount}
+								name="sell_amount"
+								value={priceState.sell_amount}
 								onChange={handleInputChange} />
+						</Form.Group>
+						<Form.Group className="mb-3" controlId="total">
+							<Form.Label column sm="2">
+								Total
+							</Form.Label>
+							<Form.Control
+								type="text"
+								placeholder="Total"
+								name="total"
+								value={priceState.sell_amount * real_time_price} />
 						</Form.Group>
 						<Button
 							variant="warning"
@@ -88,4 +164,4 @@ const RegisterForm = () => {
 	)
 }
 
-export default RegisterForm
+export default LimitBox

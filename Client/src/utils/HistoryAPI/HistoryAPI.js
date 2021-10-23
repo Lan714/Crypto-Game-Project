@@ -28,16 +28,10 @@ const HistoryAPI = {
 		}
 	}),
 
-	pushTransaction: () => axios.put(`api/history/transaction/`, {
+	pushTransaction: (body) => axios.put(`api/history/transaction/`, body, {
 		headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
-		},
-		body: JSON.stringify({
-			crypto_name: "TESTING",
-			side: "buy",
-			price: 200,
-			amount: 1
-		})
+		}
 	}),
 
 	update: (id, updates) => axios.put(`/api/history/${id}`, updates, {
