@@ -10,7 +10,8 @@ const Footer = () => {
           <div className="row">
             <div className="col-md-3 col-sm-6 info">
               <h4><FontAwesomeIcon icon={faInfoCircle} className="icon" />About CryptoMaster</h4>
-              <p className="text"> A gaming app that allows the users to practice their skills in crypto currency exchange. This app was developed by 6 coding boot camp students from UC Irvine. Happy Gaming! 
+              <p className="text"> This is a gaming app that allows users to practice their skills in crypto currency exchange.Test yours skills to see if you have what it takes to be ahead of the crypto curve. Happy Gaming! 
+              !DISCLAIMER! This is not a monetary game, gains and losses made during the game do not carry outside the game! 
               </p>
             </div>
             <div className="col-md-3 col-sm-6 links">
@@ -36,7 +37,7 @@ const Footer = () => {
           </div>
           <div className="row mt-1">
     <div className="col copyright">
-      <p className=""><small className="text-white-50">© 2021. All Rights Reserved.</small></p>
+      <p className=""><small className="text-white-50">© 2021. All Rights Reserved. Want to find out more about CryptoMaster <a href="./Pages/AboutUs">CLICK HERE</a></small></p>
     </div>
   </div>
         </div>
