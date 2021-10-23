@@ -35,7 +35,6 @@ const Leaderboard = () => {
 			.catch(err => {
 				console.log(err)
 			})
-
 	}
 
 	const renderRank = (rank, index) => {
