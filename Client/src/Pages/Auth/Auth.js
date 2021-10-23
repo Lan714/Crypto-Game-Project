@@ -1,15 +1,10 @@
 import { useState } from 'react'
 import SignInForm from '../../components/SignInForm'
-import RegisterForm from '../../components/RegisterForm'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 
 
 const Auth = () => {
-  const [toggle, setToggle] = useState(false)
-  const clicked_toggle = () => {
-    setToggle(!toggle)
-  }
   return (
     <>
       <Card className="text-center" bg="dark" text="white">

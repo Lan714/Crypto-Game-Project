@@ -38,42 +38,41 @@ const SignInForm = () => {
 	return (
 
 		<div className="olor-overlay d-flex justify-content-center align-items-center">
-		<Form classname="rounded p-4 p-sm-3">
-			<Form.Group className="mb-3 c" controlId="username">
-				<Form.Label>Username </Form.Label>
-				<Form.Control
-					type="text"
-					placeholder="Enter your username"
-					name="username"
-					value={userState.username}
-					onChange={handleInputChange} />
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="password">
-				<Form.Control
-					type="password"
-					placeholder="Enter your password"
-					name="password"
-					value={userState.password}
-					onChange={handleInputChange} />
-			</Form.Group>
-			<Form.Group className="mb-3"
-			controlId="formBasicCheckbox"> 
-			<Form.Check type="checkbox" label="Remember Me"/>
-			</Form.Group>
-			<Button id="signIn button"
-				variant="warning"
-				type="submit"
-				onClick={handleLoginUser} >
-				Sign In
-			</Button>
-			<Button id="register button"
-				variant="warning"
-				type="button">
-				<div onClick={() => history.push('/Register')} className="Register">
-				<span className="Register">Register</span>
-				</div>
-			</Button>
-		</Form>
+			<Form classname="rounded p-4 p-sm-3">
+				<Form.Group className="mb-3 c" controlId="username">
+					<Form.Control
+						type="text"
+						placeholder="Enter your username"
+						name="username"
+						value={userState.username}
+						onChange={handleInputChange} />
+				</Form.Group>
+				<Form.Group className="mb-3" controlId="password">
+					<Form.Control
+						type="password"
+						placeholder="Enter your password"
+						name="password"
+						value={userState.password}
+						onChange={handleInputChange} />
+				</Form.Group>
+				<Form.Group className="mb-3"
+					controlId="formBasicCheckbox">
+					<Form.Check type="checkbox" label="Remember Me" />
+				</Form.Group>
+				<Button id="signIn"
+					variant="warning"
+					type="submit"
+					onClick={handleLoginUser} >
+					Sign In
+				</Button>
+				<Button id="register"
+					variant="outline-warning"
+					type="button">
+					<div onClick={() => history.push('/register')} className="Register">
+						<span className="Register">Register</span>
+					</div>
+				</Button>
+			</Form>
 		</div>
 	)
 }
