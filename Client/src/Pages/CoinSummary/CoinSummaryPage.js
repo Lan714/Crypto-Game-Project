@@ -1,5 +1,5 @@
 import React from 'react'
-import AddCoin from '../../components/AddCoin'
+import AddCoin from '../../components/AddCoin/AddCoin'
 import CoinList from '../../components/CoinList/CoinList'
 import './CoinSummaryPage.css'
 
