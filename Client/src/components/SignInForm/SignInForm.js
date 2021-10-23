@@ -3,6 +3,7 @@ import UserAPI from '../../utils/UserAPI'
 import { useHistory } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import './SignIn.css'
 import { FormGroup } from 'react-bootstrap'
 
@@ -35,6 +36,7 @@ const SignInForm = () => {
 	}
 
 	return (
+
 		<div className="olor-overlay d-flex justify-content-center align-items-center">
 		<Form classname="rounded p-4 p-sm-3">
 			<Form.Group className="mb-3 c" controlId="username">
@@ -47,7 +49,6 @@ const SignInForm = () => {
 					onChange={handleInputChange} />
 			</Form.Group>
 			<Form.Group className="mb-3" controlId="password">
-				<Form.Label>Password </Form.Label>
 				<Form.Control
 					type="password"
 					placeholder="Enter your password"

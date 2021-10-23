@@ -1,15 +1,19 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import UserAPI from '../../utils/UserAPI'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import './RegisterForm.css'
 
 const RegisterForm = () => {
+	const history = useHistory()
 	const [userState, setUserState] = useState({
 		name: '',
 		email: '',
 		username: '',
-		password: ''
+		password: '',
+		password2: ''
 	})
 
 
@@ -17,13 +21,21 @@ const RegisterForm = () => {
 
 	const handleRegisterUser = event => {
 		event.preventDefault()
-		UserAPI.register(userState)
-			.then(() => {
-				alert('User Registered!')
-				setUserState({ ...userState, name: '', email: '', username: '', password: '' })
-				window.location = '/signin'
-			})
-			.catch(err => console.error(err))
+
+		if (userState.password !== userState.password2) {
+			alert(`Password doesn't match!`)
+			setUserState({ ...userState, name: '', email: '', username: '', password: '', password2: '' })
+			window.location = '/register'
+		}
+		else {
+			UserAPI.register(userState)
+				.then(() => {
+					alert('User Registered!')
+					setUserState({ ...userState, name: '', email: '', username: '', password: '', password2: '' })
+					window.location = '/signin'
+				})
+				.catch(err => console.error(err))
+		}
 	}
 
 	return (
@@ -74,20 +86,27 @@ const RegisterForm = () => {
 				<Form.Control
 					type="password"
 					placeholder="Re-enter your password"
-					name="password"
-					value={userState.password}
+					name="password2"
+					value={userState.password2}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Button
-				variant="warning"
-
-				type="submit"
-				onClick={handleRegisterUser} >
-				Register
-			</Button>
+			<ButtonGroup>
+				<Button id="register"
+					variant="outline-warning"
+					type="button">
+					<div onClick={() => history.push('/signin')} className="Register">
+						<span className="Register">Sign In</span>
+					</div>
+				</Button>
+				<Button
+					variant="warning"
+					type="submit"
+					onClick={handleRegisterUser} >
+					Register
+				</Button>
+			</ButtonGroup>
 		</Form>
 	)
 }
 
 export default RegisterForm
-
