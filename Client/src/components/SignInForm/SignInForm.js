@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import './SignIn.css'
+import { FormGroup } from 'react-bootstrap'
 
 
 const SignInForm = () => {
@@ -35,8 +36,11 @@ const SignInForm = () => {
 	}
 
 	return (
-		<Form>
-			<Form.Group className="mb-3 color-overlay d-flex justify-content-center align-items-center" controlId="username">
+
+		<div className="olor-overlay d-flex justify-content-center align-items-center">
+		<Form classname="rounded p-4 p-sm-3">
+			<Form.Group className="mb-3 c" controlId="username">
+				<Form.Label>Username </Form.Label>
 				<Form.Control
 					type="text"
 					placeholder="Enter your username"
@@ -52,20 +56,25 @@ const SignInForm = () => {
 					value={userState.password}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Button id="signIn"
+			<Form.Group className="mb-3"
+			controlId="formBasicCheckbox"> 
+			<Form.Check type="checkbox" label="Remember Me"/>
+			</Form.Group>
+			<Button id="signIn button"
 				variant="warning"
 				type="submit"
 				onClick={handleLoginUser} >
 				Sign In
 			</Button>
-			<Button id="register"
-				variant="outline-warning"
+			<Button id="register button"
+				variant="warning"
 				type="button">
-				<div onClick={() => history.push('/register')} className="Register">
-					<span className="Register">Register</span>
+				<div onClick={() => history.push('/Register')} className="Register">
+				<span className="Register">Register</span>
 				</div>
 			</Button>
 		</Form>
+		</div>
 	)
 }
 
