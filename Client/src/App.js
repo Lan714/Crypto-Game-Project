@@ -56,7 +56,7 @@ function App() {
               <BackgroundVideo />
               <AboutUs />
             </Route>
-            <Route paht='/practice'>
+            <Route path='/practice'>
               <BackgroundVideo />
               <Practice />
             </Route>
