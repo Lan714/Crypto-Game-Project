@@ -4,6 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Jayeon from './Image/jay_avatar.png'
 import Shannon from './Image/shannon_avatar.png'
 import Samantha from './Image/samantha_avatar.png'
+import Jasmine from './Image/Jasmine_avatar.png'
 import './ControlledCarousel.css';
 
 function ControlledCarousel() {
@@ -13,7 +14,7 @@ function ControlledCarousel() {
       <h3>CryptoMaster is the brainchild of six UCI Full Stack Bootcamp Students</h3>
       <Carousel center="xs" id="WhoWeAre">
         <Carousel.Item interval={2000}>
-          <img className="d-block w-100" src="https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072__340.jpg"/>
+          <img img id="Image" className="d-block w-100" src={Jasmine}/>
           <Carousel.Caption>
             <h3>Jasmine Benson</h3>
           </Carousel.Caption>
