@@ -9,7 +9,7 @@ function AboutUs() {
 	return (
 		<div className="aboutUsPg">
 			<Navbar />
-			<div className="pgContent">
+			<div className="text-center">
 				<Container id="aboutUsHeader">
 					<Col id="aboutUsTitle">
 						<p class="text-warning" FontAwesomeIcon icon={"fas fa-user"} id="aboutUsIcon" />
@@ -17,7 +17,7 @@ function AboutUs() {
 					</Col>
 				</Container>
 				<Container id="howToPlay">
-					<Row top="xs" xs={12}>
+					<Row top="xs" xs={12} md={1}>
 						<Col id="howToPlay">
 							<h3>How to Play CryptoMaster</h3>
 						</Col>
