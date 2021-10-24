@@ -8,12 +8,12 @@ const Footer = () => {
       <div className="footer">
         <div className="container" id="about">
           <div className="row">
-            <div className="col-md-4 col-xs-2 Column">
-              <h4><FontAwesomeIcon icon={faInfoCircle} className="icon" />About CryptoMaster</h4>
+            <div className="col-md-4 col-xs-2" id="column">
+              <h4><FontAwesomeIcon icon={faInfoCircle} className="icon"/>About CryptoMaster</h4>
               <p className="text"> This is a gaming app that allows users to practice their skills in crypto currency exchange.Test yours skills to see if you have what it takes to be ahead of the crypto curve. Happy Gaming! 
               </p>
             </div>
-            <div className="col-md-3 col-xs-2 links">
+            <div className="col-md-3 col-xs-2 links" id="column">
               <h4 className="mt-lg-0 mt-sm-3"><FontAwesomeIcon icon={faUsers} className="icon" />About us</h4>
               <ul className="list-unstyled">
                 <li> <a href="https://github.com/jypkr">Jaeyeon Park</a></li>
@@ -24,13 +24,13 @@ const Footer = () => {
                 <li> <a href="https://github.com/Heaulin">Samantha Mack</a></li>
               </ul>
             </div>
-            <div className="col-md-5 col-xs-2 Contact">
+            <div className="col-md-3 col-xs-2" id="column">
               <h4 className="mt-lg-0 mt-sm-4">
                 <FontAwesomeIcon icon={faAddressBook} className="icon" />Contact us</h4>
               <p className="mb-0">
                 <FontAwesomeIcon icon={faPhone} className="icon2" />(541) 754-3010</p>
               <p className="mb-0">
-                <FontAwesomeIcon icon={faEnvelope} className="icon2" />cryptomaster@gmail.com
+                <FontAwesomeIcon icon={faEnvelope} className="icon2" />crypto@aol.com
                 </p>
             </div>
           </div>

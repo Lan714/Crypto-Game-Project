@@ -31,3 +31,5 @@ CryptoMaster is a play investment game with virtual $100 which is given when use
 * [Remi Kim](https://github.com/remireems)
 * [Samantha Mack](https://github.com/Heaulin)
 
+## License 
+* ISC Internet Systems Consortium
