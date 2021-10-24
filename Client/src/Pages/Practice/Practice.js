@@ -1,6 +1,6 @@
 import Navbar from '../../components/NavBar'
 import './Practice.css'
-import Footer from '../../components/Footer/Footer'
+import Footer2 from '../../components/Footer2'
 import LimitBox from '../../components/LimitBox'
 
 const Practice = () => {
@@ -12,7 +12,7 @@ const Practice = () => {
 			<Navbar />
 			<div className="pgContent">
 				<LimitBox />
-				<Footer />
+				<Footer2 />
 			</div>
 		</div>
 	)
