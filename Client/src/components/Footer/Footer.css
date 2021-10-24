@@ -4,7 +4,7 @@
   position: absolute;
   bottom: 0;
   /* left: 10em; */
-  height: 15rem;
+  /* height: 15rem; */
   /* width: auto; */
   font-size: 15px;
   text-align: center;
@@ -44,7 +44,7 @@ a {
   #about {
     font-size: 13px;
     float: left;
-    /* width: 25%; */
+    bottom: 1rem !important;
   }
 }
 
