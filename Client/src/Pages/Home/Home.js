@@ -26,7 +26,11 @@ const Home = () => {
 				</Container>
 				<CoinSummaryPage />
 				<LimitBox />
+<<<<<<< HEAD
+				<Footer />
+=======
 				<Footer2 />
+>>>>>>> d3727b3a241ffdb0b41d094f677636eac08e60cb
 			</div>
 		</div>
 	)

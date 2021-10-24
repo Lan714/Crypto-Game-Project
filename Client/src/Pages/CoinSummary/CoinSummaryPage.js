@@ -11,7 +11,6 @@ const CoinSummaryPage = () => {
     React.createElement(
       'div',
       { className: 'coinsummary border p-2 rounded mt bg-light' },
-      React.createElement(AddCoin, null),
       React.createElement(CoinList, null)
     )
   );
