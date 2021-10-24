@@ -5,7 +5,7 @@ import './LimitBox.css'
 
 const LimitBox = () => {
 	const crypto_name = "TESTING"
-	const real_time_price = 200.0
+	const real_time_price = localStorage.getItem('bitcoin')
 
 	const [priceState, setPriceState] = useState({
 		real_time_price: real_time_price,

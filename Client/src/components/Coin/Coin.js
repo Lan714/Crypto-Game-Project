@@ -2,12 +2,20 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 const Coin = ({ coin, deleteCoin }) => {
+  const click_coin = () => {
+    console.log(coin.id)
+    console.log(coin.current_price)
+  }
+
   return React.createElement(
     Link,
     { to: `/`, className: "text-decoration-none my-1 coin" },
     React.createElement(
       "li",
-      { className: "coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-dark" },
+      {
+        className: "coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-dark",
+        onClick: () => click_coin()
+      },
       React.createElement("img", { className: "coinlist-image", src: coin.image, alt: "" }),
       React.createElement(
         "span",
