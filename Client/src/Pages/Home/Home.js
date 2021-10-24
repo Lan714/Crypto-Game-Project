@@ -7,10 +7,12 @@ const Home = () => {
 	if (!localStorage.getItem('token')) {
 		window.location = '/signin'
 	}
+
 	return (
 		<div className="homePg">
 			<Navbar />
 			<div className="pgContent">
+				<CoinSummaryPage />
 				<Footer />
 			</div>
 		</div>

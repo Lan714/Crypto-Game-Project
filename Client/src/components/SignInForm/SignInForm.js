@@ -4,9 +4,7 @@ import HistoryAPI from '../../utils/HistoryAPI'
 import { useHistory } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import './SignIn.css'
-import { FormGroup } from 'react-bootstrap'
 
 import Ingame_weekNumber from '../Ingame_weekNumber'
 
@@ -22,14 +20,15 @@ const SignInForm = () => {
 
 	const handleInputChange = ({ target: { name, value } }) => setUserState({ ...userState, [name]: value })
 
-	const checkHistory = event => {
+	const checkHistory = () => {
 		alert('checkHistory function!')
 		HistoryAPI.getHistory(Ingame_weekNumber().ingame_weeknumber)
 			.then(data => {
-				console.log(data)
-				if (data.length === 0) {
+				if (data.data.length === 0) {
 					HistoryAPI.create()
+					setUserState({ ...userState, name: '', email: '', username: '', password: '' })
 				}
+				window.location = '/'
 			})
 			.catch(err => console.log(err))
 	}
@@ -42,8 +41,6 @@ const SignInForm = () => {
 					// Check if there is existed history model
 					localStorage.setItem('token', token)
 					checkHistory()
-					setUserState({ ...userState, name: '', email: '', username: '', password: '' })
-					window.location = '/'
 				}
 				else {
 					alert('User unable to login')

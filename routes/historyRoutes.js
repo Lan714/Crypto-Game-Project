@@ -10,8 +10,8 @@ router.get('/history/max', passport.authenticate('jwt'), (req, res) => {
 	res.json(result)
 })
 
-router.get('/history/:num', passport.authenticate('jwt'), (req, res) => {
-	History.find({ weekNumber: req.params.num, user: req.user._id })
+router.get('/history/:num', passport.authenticate('jwt'), async function (req, res)  {
+	await History.find({ weekNumber: req.params.num, user: req.user._id })
 		.then(history => res.json(history))
 })
 
