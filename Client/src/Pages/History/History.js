@@ -6,8 +6,8 @@ import DropdownWeeknumForm from '../../components/DropdownWeekNumForm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWallet } from '@fortawesome/free-solid-svg-icons'
 import * as ReactBootStrap from 'react-bootstrap'
-import './History.css'
 import Footer2 from '../../components/Footer2'
+import './History.css'
 
 const History = () => {
 	const [historyState, setHistoryState] = useState({
@@ -73,16 +73,30 @@ const History = () => {
 	}
 
 	const renderTransaction = (transaction, index) => {
-		return (
-			<tr key={index}>
-				<td>{transaction.date}</td>
-				<td>{transaction.crypto_name}</td>
-				<td>{transaction.side}</td>
-				<td>{transaction.price}</td>
-				<td>{transaction.amount}</td>
-				<td>{transaction.total}</td>
-			</tr>
-		)
+		if (transaction.side === 'sell') {
+			return (
+				<tr key={index}>
+					<td>{transaction.date}</td>
+					<td>{transaction.crypto_name}</td>
+					<td style={{ background: 'green' }}>{transaction.side}</td>
+					<td>{transaction.price}</td>
+					<td>{transaction.amount}</td>
+					<td>{transaction.total}</td>
+				</tr>
+			)
+		}
+		else {
+			return (
+				<tr key={index}>
+					<td>{transaction.date}</td>
+					<td>{transaction.crypto_name}</td>
+					<td style={{ background: 'red' }}>{transaction.side}</td>
+					<td>{transaction.price}</td>
+					<td>{transaction.amount}</td>
+					<td>{transaction.total}</td>
+				</tr>
+			)
+		}
 	}
 
 	return (
@@ -99,7 +113,7 @@ const History = () => {
 				</Container>
 				<Container id="histTableCont">
 					<Row>
-						<Col className="d-flex p-0">
+						<Col className="d-flex justify-content-center align-items-center">
 							<Dropdown>
 								<Dropdown.Toggle className="weekTogBtn" variant="dark" id="dropdown-basic">
 									Week
@@ -124,7 +138,7 @@ const History = () => {
 							</Row>
 							<br />
 							<Row>
-								<ReactBootStrap.Table striped bordered hover variant="dark">
+								<ReactBootStrap.Table striped bordered hover variant="dark" className="text-center">
 									<thead>
 										<tr>
 											<th>Cash Balance</th>
@@ -141,7 +155,7 @@ const History = () => {
 							</Row>
 							<br />
 							<Row>
-								<ReactBootStrap.Table striped bordered hover variant="dark">
+								<ReactBootStrap.Table bordered hover variant="dark" className="text-center">
 									<thead>
 										<tr>
 											<th>Date Time</th>
@@ -161,10 +175,9 @@ const History = () => {
 							</Row>
 						</div>
 					)
-
 						: (
-							<div>
-								Waiting for week number................
+							<div className="d-flex justify-content-center align-items-center">
+								Select week number...
 								<ReactBootStrap.Spinner animation="grow" />
 							</div>
 						)

@@ -20,7 +20,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 
-button {
+.button {
   background-color: #04AA6D;
   border: black;
   cursor: pointer;
@@ -36,30 +36,17 @@ button:hover {
   opacity: 0.8;
 }
 
-/* Center the avatar image inside this container */
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-/* Avatar image */
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
 /* Add padding to containers */
 
-.container {
+#registerCont {
   padding-top: 16rem;
   text-align: center;
+  position: absolute;
 }
 
 /* Change styles for span and cancel button on extra small screens */
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 600px) {
   span.psw {
     display: block;
     float: none;

@@ -16,7 +16,26 @@ body {
   padding: 1rem;
 }
 
+#homeHeader {
+  padding: 0;
+}
+
+#homeTitle {
+  color: white;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xxx-large;
+}
+
+#homeIcon {
+  margin-right: 1rem;
+  color: gold;
+}
+
 /* small screens */
+
 @media screen and (max-width: 600px) {
   .pgContent {
     width: 100vw;
@@ -24,6 +43,7 @@ body {
 }
 
 /* large screens */
+
 @media screen and (min-width: 600px) {
   .pgContent {
     width: calc(100% - 5rem);

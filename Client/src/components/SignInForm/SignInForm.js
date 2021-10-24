@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import UserAPI from '../../utils/UserAPI'
+import HistoryAPI from '../../utils/HistoryAPI'
 import { useHistory } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './SignIn.css'
+
+import Ingame_weekNumber from '../Ingame_weekNumber'
 
 
 const SignInForm = () => {
@@ -17,56 +20,74 @@ const SignInForm = () => {
 
 	const handleInputChange = ({ target: { name, value } }) => setUserState({ ...userState, [name]: value })
 
+	const checkHistory = () => {
+		alert('checkHistory function!')
+		HistoryAPI.getHistory(Ingame_weekNumber().ingame_weeknumber)
+			.then(data => {
+				if (data.data.length === 0) {
+					HistoryAPI.create()
+					setUserState({ ...userState, name: '', email: '', username: '', password: '' })
+				}
+				window.location = '/'
+			})
+			.catch(err => console.log(err))
+	}
+
 	const handleLoginUser = event => {
 		event.preventDefault()
 		UserAPI.login(userState)
 			.then(({ data: token }) => {
 				if (token) {
+					// Check if there is existed history model
 					localStorage.setItem('token', token)
-					setUserState({ ...userState, name: '', email: '', username: '', password: '' })
-					window.location = '/'
+					checkHistory()
 				}
 				else {
-					alert('User unable to login idk why')
+					alert('User unable to login')
 				}
 			})
 			.catch(err => console.error(err))
 	}
 
 	return (
-		<Form>
-			<Form.Group className="mb-3 color-overlay d-flex justify-content-center align-items-center" controlId="username">
-				<Form.Label>Username</Form.Label>
-				<Form.Control
-					type="text"
-					placeholder="Enter your username"
-					name="username"
-					value={userState.username}
-					onChange={handleInputChange} />
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="password">
-				<Form.Label>Password</Form.Label>
-				<Form.Control
-					type="password"
-					placeholder="Enter your password"
-					name="password"
-					value={userState.password}
-					onChange={handleInputChange} />
-			</Form.Group>
-			<Button id="signIn"
-				variant="warning"
-				type="submit"
-				onClick={handleLoginUser} >
-				Sign In
-			</Button>
-			<Button id="register"
-				variant="warning"
-				type="button">
-				<div onClick={() => history.push('/Register')} className="Register">
-				<span className="Register">Register</span>
-				</div>
-			</Button>
-		</Form>
+
+		<div className="olor-overlay d-flex justify-content-center align-items-center">
+			<Form classname="rounded p-4 p-sm-3">
+				<Form.Group className="mb-3 c" controlId="username">
+					<Form.Control
+						type="text"
+						placeholder="Enter your username"
+						name="username"
+						value={userState.username}
+						onChange={handleInputChange} />
+				</Form.Group>
+				<Form.Group className="mb-3" controlId="password">
+					<Form.Control
+						type="password"
+						placeholder="Enter your password"
+						name="password"
+						value={userState.password}
+						onChange={handleInputChange} />
+				</Form.Group>
+				<Form.Group className="mb-3"
+					controlId="formBasicCheckbox">
+					<Form.Check type="checkbox" label="Remember Me" />
+				</Form.Group>
+				<Button id="signIn"
+					variant="warning"
+					type="submit"
+					onClick={handleLoginUser} >
+					Sign In
+				</Button>
+				<Button id="register"
+					variant="outline-warning"
+					type="button">
+					<div onClick={() => history.push('/register')} className="Register">
+						<span className="Register">Register</span>
+					</div>
+				</Button>
+			</Form>
+		</div>
 	)
 }
 
