@@ -14,7 +14,7 @@ const Auth = () => {
         <Card.Footer className="text-muted" text="white">New to CryptoMaster? Sign-up is free and it's easy!</Card.Footer>
       </Card>
       <> 
-      <Container>
+      <Container id="signInFormCont">
             <SignInForm sm={3} id="signIn"/>
       </Container>
       </>

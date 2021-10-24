@@ -2,6 +2,8 @@ import RegisterForm from '../../components/RegisterForm'
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 // import CopyRightFooter from '../../components/CopyRightFooter'
+import './Register.css'
+
 function Register() {
   return (
     <>
@@ -12,7 +14,7 @@ function Register() {
         <Card.Footer className="text-muted" text="white">New to CryptoMaster? Sign-up is free and it's easy!</Card.Footer>
       </Card>
       <div>
-        <Container>
+        <Container id="registerCont">
           <RegisterForm sm={3} id="Register" />
         </Container>
         {/* <CopyRightFooter /> */}

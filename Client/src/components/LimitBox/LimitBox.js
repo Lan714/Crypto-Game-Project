@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import HistoryAPI from '../../utils/HistoryAPI/HistoryAPI'
-import Form from 'react-bootstrap/Form'
-import { Container, Card, CardGroup } from 'react-bootstrap'
-import Button from 'react-bootstrap/Button'
+import { Container, Card, CardGroup, Form, Button } from 'react-bootstrap'
 import './LimitBox.css'
 
 const LimitBox = () => {
@@ -74,7 +72,7 @@ const LimitBox = () => {
 	}
 
 	return (
-		<Container>
+		<Container id="limitBoxCont">
 			<CardGroup>
 				<Card style={{ width: '18rem' }}>
 					<Card.Body>

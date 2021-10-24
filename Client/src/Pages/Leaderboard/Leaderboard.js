@@ -85,7 +85,7 @@ const Leaderboard = () => {
 				<Container id="lbTableCont">
 					<br />
 					<Row>
-						<Col sm={4} className="d-flex p-0">
+						<Col className="d-flex justify-content-center align-items-center">
 							<Dropdown>
 								<Dropdown.Toggle className="weekTogBtn" variant="dark" id="dropdown-basic">
 									Week
@@ -110,7 +110,7 @@ const Leaderboard = () => {
 								</Row>
 								<br />
 								<Row>
-									<ReactBootStrap.Table striped bordered hover variant="dark">
+									<ReactBootStrap.Table striped bordered hover variant="dark" className="text-center">
 										<thead>
 											<tr>
 												<th>Rank</th>
@@ -129,8 +129,8 @@ const Leaderboard = () => {
 						)
 						: (
 							// Loader needs to be placed where table will be placed
-							<div>
-								Loading................
+							<div className="d-flex justify-content-center align-items-center mt-2">
+								Select week number...
 								<ReactBootStrap.Spinner animation="grow" />
 							</div>
 						)

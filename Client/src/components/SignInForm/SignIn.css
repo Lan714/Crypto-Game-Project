@@ -51,7 +51,7 @@ img.avatar {
 
 /* Add padding to containers */
 
-.container {
+#signInFormCont {
   padding-top: 16rem;
   text-align: center;
   position: absolute;
@@ -64,7 +64,6 @@ img.avatar {
     display: block;
     float: none;
   }
-  
   /* Full-width inputs */
   input[type=text], input[type=password] {
     width: 50%;
@@ -73,7 +72,6 @@ img.avatar {
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
-  
   /* Set a style for all buttons */
   .signIn button {
     background-color: #04AA6D;
@@ -84,7 +82,6 @@ img.avatar {
     margin-left: auto;
     margin-right: 16px;
   }
-  
   /* Set a style for all buttons */
   .register button {
     background-color: #04AA6D;
@@ -94,22 +91,20 @@ img.avatar {
     width: 100px;
     margin-left: auto;
   }
-
   /* Add a hover effect for buttons */
   button:hover {
     opacity: 0.8;
   }
-  
   /* Add padding to containers */
-  .container {
+  #signInFormCont {
     padding-top: 16rem;
     text-align: center;
   }
-  
   /* Change styles for span and cancel button on extra small screens */
   @media screen and (max-width: 600px) {
     span.psw {
       display: block;
       float: none;
+    }
   }
-}}
+}
