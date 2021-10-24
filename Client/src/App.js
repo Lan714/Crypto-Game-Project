@@ -67,6 +67,11 @@ function App() {
             <Route path='/CoinDetailPage'>
               <CoinDetailPage />
             </Route>
+            <Route>
+              
+            </Route>
+
+
           </Switch>
         </div>
       </Router>
