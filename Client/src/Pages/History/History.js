@@ -156,7 +156,7 @@ const History = () => {
 							</Row>
 							<br />
 							<Row>
-								<ReactBootStrap.Table striped bordered hover variant="dark">
+								<ReactBootStrap.Table bordered hover variant="dark">
 									<thead>
 										<tr>
 											<th>Date Time</th>
@@ -176,7 +176,6 @@ const History = () => {
 							</Row>
 						</div>
 					)
-
 						: (
 							<div>
 								Waiting for week number................

@@ -1,11 +1,8 @@
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import UserAPI from '../../utils/UserAPI'
 import HistoryAPI from '../../utils/HistoryAPI/HistoryAPI'
 import Form from 'react-bootstrap/Form'
 import { Container, Card, CardGroup } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
-import Ingame_weekNumber from '../Ingame_weekNumber'
 import './LimitBox.css'
 
 const LimitBox = () => {
@@ -24,7 +21,7 @@ const LimitBox = () => {
 	const handleSell = event => {
 		event.preventDefault()
 
-		if (priceState.amount === 0.0) {
+		if (priceState.sell_amount === 0.0 || priceState.sell_amount === 0) {
 			alert('Put Amount!')
 		}
 		else {
@@ -51,7 +48,7 @@ const LimitBox = () => {
 	const handleBuy = event => {
 		event.preventDefault()
 
-		if (priceState.amount === 0.0) {
+		if (priceState.buy_amout === 0.0 || priceState.buy_amout === 0) {
 			alert('Put Amount!')
 		}
 		else {
@@ -64,7 +61,7 @@ const LimitBox = () => {
 
 			HistoryAPI.pushTransaction(body)
 				.then(data => {
-					alert('Buying Transaction success!')
+					alert(`Buying Transaction success!`)
 					setPriceState({
 						...priceState, real_time_price: real_time_price,
 						sell_amount: 0.0,
@@ -156,7 +153,7 @@ const LimitBox = () => {
 						<Button
 							variant="warning"
 							onClick={handleSell}>
-							sell</Button>
+							Sell</Button>
 					</Card.Body>
 				</Card>
 			</CardGroup>
