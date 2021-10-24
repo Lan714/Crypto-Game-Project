@@ -28,7 +28,7 @@ const HistoryAPI = {
 		}
 	}),
 
-	pushTransaction: (transaction) => axios.put(`api/history/transaction/`, transaction, {
+	pushTransaction: (body) => axios.put(`api/history/transaction/`, body, {
 		headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}

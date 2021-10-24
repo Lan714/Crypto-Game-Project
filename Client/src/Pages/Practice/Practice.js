@@ -1,9 +1,9 @@
 import Navbar from '../../components/NavBar'
-import './Home.css'
+import './Practice.css'
 import Footer from '../../components/Footer/Footer'
-import CoinSummaryPage from '../CoinSummary/CoinSummaryPage'
+import LimitBox from '../../components/LimitBox'
 
-const Home = () => {
+const Practice = () => {
 	if (!localStorage.getItem('token')) {
 		window.location = '/signin'
 	}
@@ -11,10 +11,11 @@ const Home = () => {
 		<div className="homePg">
 			<Navbar />
 			<div className="pgContent">
+				<LimitBox />
 				<Footer />
 			</div>
 		</div>
 	)
 }
 
-export default Home
+export default Practice

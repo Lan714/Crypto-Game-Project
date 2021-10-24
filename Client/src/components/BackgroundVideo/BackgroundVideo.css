@@ -1,9 +1,10 @@
 #BackgroundVideo {
-    height: 100%;
+    object-fit: cover;
     width: 100%;
-    float: left;
+    height: 100vh;
     position: fixed;
-    z-index: -1;
+    top: 0;
+    left: 0;
 }
 
 @media (min-aspect-ratio: 16/9) {
@@ -12,6 +13,7 @@
         height: auto;
     }
 }
+
 @media (max-aspect-ratio: 16/9) {
     #globe {
         width: auto;

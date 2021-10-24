@@ -9,6 +9,7 @@ import * as ReactBootStrap from 'react-bootstrap'
 import './History.css'
 import Footer2 from '../../components/Footer2'
 
+
 const History = () => {
 	const [historyState, setHistoryState] = useState({
 		weekNumber: '',
@@ -73,16 +74,30 @@ const History = () => {
 	}
 
 	const renderTransaction = (transaction, index) => {
-		return (
-			<tr key={index}>
-				<td>{transaction.date}</td>
-				<td>{transaction.crypto_name}</td>
-				<td>{transaction.side}</td>
-				<td>{transaction.price}</td>
-				<td>{transaction.amount}</td>
-				<td>{transaction.total}</td>
-			</tr>
-		)
+		if (transaction.side === 'sell') {
+			return (
+				<tr key={index}>
+					<td>{transaction.date}</td>
+					<td>{transaction.crypto_name}</td>
+					<td style={{ background: 'green' }}>{transaction.side}</td>
+					<td>{transaction.price}</td>
+					<td>{transaction.amount}</td>
+					<td>{transaction.total}</td>
+				</tr>
+			)
+		}
+		else {
+			return (
+				<tr key={index}>
+					<td>{transaction.date}</td>
+					<td>{transaction.crypto_name}</td>
+					<td style={{ background: 'red' }}>{transaction.side}</td>
+					<td>{transaction.price}</td>
+					<td>{transaction.amount}</td>
+					<td>{transaction.total}</td>
+				</tr>
+			)
+		}
 	}
 
 	return (
