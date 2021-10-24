@@ -8,6 +8,22 @@
   text-align: center;
 }
 
-.link {
+.click {
   color: black;
 }
+
+/* @media screen and (max-width: 600px) {
+  #copyright {
+    width: 100vw;
+    height: $siteMobileFooterHeight;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  #copyright {
+    width: calc(100% - 5rem);
+    left: 5rem;
+    transition: all 0.6s ease;
+    height: $siteMobileFooterHeight;
+  }
+} */
