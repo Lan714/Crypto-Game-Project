@@ -7,7 +7,9 @@ const CoinList = () => {
   const [coins, setCoins] = useState([]);
   const { watchList, deleteCoin } = useContext(WatchListContext);
   const [isLoading, setIsLoading] = useState(false);
+
   console.log(watchList);
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -39,7 +41,10 @@ const CoinList = () => {
       'ul',
       { className: 'coinlist list-group mt-2' },
       coins.map(coin => {
-        return React.createElement(Coin, { key: coin.id, coin: coin, deleteCoin: deleteCoin });
+        localStorage.setItem(coin.id, coin.current_price)
+        return React.createElement(
+          Coin, { key: coin.id, coin: coin, deleteCoin: deleteCoin }
+        );
       })
     );
   };
