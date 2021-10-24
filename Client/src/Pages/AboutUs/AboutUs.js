@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ControlledCarousel from '../../components/ControlledCarousel'
 import './AboutUs.css'
-import Footer2 from '../../components/Footer2'
+import Footer from '../../components/Footer'
 
 function AboutUs() {
 	return (
@@ -37,7 +37,7 @@ function AboutUs() {
 						</Col>
 					</Row>
 				</Container>
-				<Footer2 />
+				<Footer />
 			</div>
 		</div>)
 }
