@@ -4,6 +4,7 @@ import { faCoins } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../../components/NavBar'
 import Footer from '../../components/Footer/Footer'
 import CoinSummaryPage from '../CoinSummary/CoinSummaryPage'
+import LimitBox from '../../components/LimitBox'
 import './Home.css'
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
 					</Row>
 				</Container>
 				<CoinSummaryPage />
+				<LimitBox />
 				<Footer />
 			</div>
 		</div>
