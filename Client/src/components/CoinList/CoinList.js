@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react'
-import coinGeckoAPI from '../../utils/CryptoAPI/coinGeckoAPI'
-import { WatchListContext } from '../../context/WatchListContext'
-import Coin from '../../components/Coin/Coin'
+import React, { useEffect, useState, useContext } from 'react';
+import coinGeckoAPI from '../../utils/CryptoAPI/coinGeckoAPI';
+import { WatchListContext } from '../../context/WatchListContext';
+import Coin from '../../components/Coin/Coin';
 
 const CoinList = () => {
   const [coins, setCoins] = useState([]);
@@ -14,8 +14,8 @@ const CoinList = () => {
       const response = await coinGeckoAPI.get("/coins/markets/", {
         params: {
           vs_currency: "usd",
-          ids: watchList.join(","),
-        },
+          ids: watchList.join(",")
+        }
       });
       setCoins(response.data);
       setIsLoading(false);
@@ -28,19 +28,28 @@ const CoinList = () => {
 
   const renderCoins = () => {
     if (isLoading) {
-      return <div>Loading...</div>;
+      return React.createElement(
+        'div',
+        null,
+        'Loading...'
+      );
     }
 
-    return (
-      <ul className="coinlist list-group mt-2">
-        {coins.map((coin) => {
-          return <Coin key={coin.id} coin={coin} deleteCoin={deleteCoin} />;
-        })}
-      </ul>
+    return React.createElement(
+      'ul',
+      { className: 'coinlist list-group mt-2' },
+      coins.map(coin => {
+        return React.createElement(Coin, { key: coin.id, coin: coin, deleteCoin: deleteCoin });
+      })
     );
   };
 
-  return <div>{renderCoins()}</div>;
+  return React.createElement(
+    'div',
+    null,
+    renderCoins()
+  );
 };
 
-export default CoinList
+export default CoinList;
+
