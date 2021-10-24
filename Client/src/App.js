@@ -14,6 +14,7 @@ import Leaderboard from './Pages/Leaderboard';
 import AboutUs from './Pages/AboutUs';
 import Ingame_weekNumber from './components/Ingame_weekNumber'
 import CoinSummaryPage from './Pages/CoinSummary/CoinSummaryPage'
+import CoinDetailPage from './Pages/CoinDetails/CoinDetailPage'
 import { WatchListContextProvider } from './context/WatchListContext'
 import BackgroundVideo from './components/BackgroundVideo/BackgroundVideo'
 
@@ -62,6 +63,9 @@ function App() {
             </Route>
             <Route path='/CoinSummaryPage'>
               <CoinSummaryPage />
+            </Route>
+            <Route path='/CoinDetailPage'>
+              <CoinDetailPage />
             </Route>
           </Switch>
         </div>
