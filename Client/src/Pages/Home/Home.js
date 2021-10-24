@@ -2,8 +2,9 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoins } from '@fortawesome/free-solid-svg-icons'
 import Navbar from '../../components/NavBar'
-import Footer from '../../components/Footer/Footer'
+import Footer2 from '../../components/Footer2/Footer2'
 import CoinSummaryPage from '../CoinSummary/CoinSummaryPage'
+import LimitBox from '../../components/LimitBox'
 import './Home.css'
 
 const Home = () => {
@@ -24,7 +25,8 @@ const Home = () => {
 					</Row>
 				</Container>
 				<CoinSummaryPage />
-				<Footer />
+				<LimitBox />
+				<Footer2 />
 			</div>
 		</div>
 	)
