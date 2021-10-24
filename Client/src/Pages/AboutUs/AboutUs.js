@@ -7,7 +7,7 @@ const AboutUs = () => {
 			<Navbar />
 			<div className="pgContent">
 				About Us Page
-			<Footer2 />
+			<Footer2 />	
 			</div>
 		</div>
 	)

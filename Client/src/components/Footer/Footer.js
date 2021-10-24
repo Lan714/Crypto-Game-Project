@@ -8,13 +8,12 @@ const Footer = () => {
       <div className="footer">
         <div className="container" id="about">
           <div className="row">
-            <div className="col-md-3 col-sm-6 info">
+            <div className="col-md-5 col-xs-2 info">
               <h4><FontAwesomeIcon icon={faInfoCircle} className="icon" />About CryptoMaster</h4>
               <p className="text"> This is a gaming app that allows users to practice their skills in crypto currency exchange.Test yours skills to see if you have what it takes to be ahead of the crypto curve. Happy Gaming! 
-              !DISCLAIMER! This is not a monetary game, gains and losses made during the game do not carry outside the game! 
               </p>
             </div>
-            <div className="col-md-3 col-sm-6 links">
+            <div className="col-md-2 col-xs-2 links">
               <h4 className="mt-lg-0 mt-sm-3"><FontAwesomeIcon icon={faUsers} className="icon" />About us</h4>
               <ul className="list-unstyled">
                 <li> <a href="https://github.com/jypkr">Jaeyeon Park</a></li>
@@ -25,19 +24,19 @@ const Footer = () => {
                 <li> <a href="https://github.com/Heaulin">Samantha Mack</a></li>
               </ul>
             </div>
-            <div className="col-md-3 col-sm-6 Contact">
+            <div className="col-md-5 col-xs-2 Contact">
               <h4 className="mt-lg-0 mt-sm-4">
                 <FontAwesomeIcon icon={faAddressBook} className="icon" />Contact us</h4>
               <p className="mb-0">
-                <FontAwesomeIcon icon={faPhone} className="icon" />(541) 754-3010</p>
-              <p>
-                <FontAwesomeIcon icon={faEnvelope} className="icon" />cryptomaster@gmail.com
+                <FontAwesomeIcon icon={faPhone} className="icon2" />(541) 754-3010</p>
+              <p className="mb-0">
+                <FontAwesomeIcon icon={faEnvelope} className="icon2" />cryptomaster@gmail.com
                 </p>
             </div>
           </div>
           <div className="row mt-1">
     <div className="col copyright">
-      <p className=""><small className="text-white-50">© 2021. All Rights Reserved. Want to find out more about CryptoMaster <a  href="./Pages/AboutUs" className="click">CLICK HERE</a></small></p>
+      <p className=""><small className="text-white-50">© 2021. All Rights Reserved.  !DISCLAIMER! This is not a monetary game, gains and losses made during the game do not carry outside the game! Want to find out more about CryptoMaster <a  href="./Pages/AboutUs" className="click">CLICK HERE</a></small></p>
     </div>
   </div>
         </div>
