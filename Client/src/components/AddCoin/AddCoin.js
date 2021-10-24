@@ -17,34 +17,38 @@ const AddCoin = () => {
     "cardano",
   ];
 
-  const handleClick = (coin) => {
+  const handleClick = coin => {
     addCoin(coin);
     setIsActive(false);
   };
 
-  return (
-    <div className="dropdown">
-      <button
-        onClick={() => setIsActive(!isActive)}
-        className="btn btn-primary dropdown-toggle"
-        type="button"
-      >
-        Add Coin
-      </button>
-      <div className={isActive ? "dropdown-menu show" : "dropdown-menu"}>
-        {availableCoins.map((el) => {
-          return (
-            <a
-              onClick={() => handleClick(el)}
-              href="#"
-              className="dropdown-item"
-            >
-              {el}
-            </a>
-          );
-        })}
-      </div>
-    </div>
+  return React.createElement(
+    'div',
+    { className: 'dropdown' },
+    React.createElement(
+      'button',
+      {
+        onClick: () => setIsActive(!isActive),
+        className: 'btn btn-primary dropdown-toggle',
+        type: 'button'
+      },
+      'Add Coin'
+    ),
+    React.createElement(
+      'div',
+      { className: isActive ? "dropdown-menu show" : "dropdown-menu" },
+      availableCoins.map(el => {
+        return React.createElement(
+          'a',
+          {
+            onClick: () => handleClick(el),
+            href: '#',
+            className: 'dropdown-item'
+          },
+          el
+        );
+      })
+    )
   );
 };
 

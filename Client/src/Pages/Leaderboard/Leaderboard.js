@@ -41,7 +41,7 @@ const Leaderboard = () => {
 		if (rank.rank === 1) {
 			return (
 				<tr key={index}>
-					<td><FontAwesomeIcon icon={faTrophy} id="lbIcon" /> </td>
+					<td><FontAwesomeIcon icon={faTrophy} id="topRankIcon" /></td>
 					<td>{rank.username}</td>
 					<td>{rank.profit}</td>
 				</tr>
@@ -129,7 +129,7 @@ const Leaderboard = () => {
 						)
 						: (
 							// Loader needs to be placed where table will be placed
-							<div className="d-flex justify-content-center align-items-center mt-2">
+							<div className="d-flex justify-content-center align-items-center mt-2 text-white">
 								Select week number...
 								<ReactBootStrap.Spinner animation="grow" />
 							</div>
