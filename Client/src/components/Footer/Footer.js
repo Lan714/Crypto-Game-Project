@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
           <div className="row mt-1">
     <div className="col copyright">
-      <p className=""><small className="text-white-50">© 2021. All Rights Reserved. Want to find out more about CryptoMaster <a href="./Pages/AboutUs">CLICK HERE</a></small></p>
+      <p className=""><small className="text-white-50">© 2021. All Rights Reserved. Want to find out more about CryptoMaster <a className="click" href="./Pages/AboutUs">CLICK HERE</a></small></p>
     </div>
   </div>
         </div>
