@@ -38,5 +38,5 @@ app.get('*', (req, res) => {
 })
 
 syncDB()
-  .then(() => app.listen(process.env.PORT || 3000))
+  .then(() => app.listen(process.env.PORT || 3001))
   .catch(err => console.log(err))
