@@ -6,4 +6,4 @@ module.exports = async function syncDB() { await mongoose.connect(process.env.MO
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
-  },) }
+  }) }
