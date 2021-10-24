@@ -23,6 +23,10 @@ body {
   row-gap: 0;
 }
 
+#ContactInfo {
+  color: white;
+}
+
 #aboutUsHeader {
   color: #ffcc00;
   font-weight: bolder;

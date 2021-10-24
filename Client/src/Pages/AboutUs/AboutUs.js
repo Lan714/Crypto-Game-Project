@@ -3,7 +3,8 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ControlledCarousel from '../../components/ControlledCarousel'
 import './AboutUs.css'
-import Footer from '../../components/Footer'
+import Footer2 from '../../components/Footer2'
+import { faPhone, faEnvelope, faUsers, faAddressBook, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
 
 function AboutUs() {
 	return (
@@ -30,6 +31,26 @@ function AboutUs() {
 						</Col>
 					</Row>
 				</Container>
+				<Container id="ContactInfo">
+					<Row top="xs" xs={12}>
+						<Col id="Contact">
+							<h3>Get In Touch </h3>
+						</Col>
+					</Row>
+				</Container>
+				<Container id="ContactInfo">
+					<Row sm={8}>
+						<Col id="ContactInfo">
+							<p><h6>Comments, Question or Concerns, feel free to contact us at:
+								<li className="list-unstyled"><p className="mb-0">
+                <FontAwesomeIcon icon={faPhone} className="icon2" />(541) 754-3010</p>
+									</li></h6></p>
+									<li className="list-unstyled"><p className="mb-0">
+                <FontAwesomeIcon icon={faEnvelope} className="icon2" />CryptoMaster@gmail.com
+                </p></li>
+						</Col>
+					</Row>
+				</Container>
 				<Container id="ControlledCarousel">
 					<Row xs={12}>
 						<Col id="Carousel">
@@ -37,7 +58,7 @@ function AboutUs() {
 						</Col>
 					</Row>
 				</Container>
-				<Footer />
+				<Footer2 />
 			</div>
 		</div>)
 }
