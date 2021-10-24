@@ -72,12 +72,12 @@ const LimitBox = () => {
 	}
 
 	return (
-		<Container id="limitBoxCont">
+		<Container id="limitBoxCont" className="mt-5">
 			<CardGroup>
 				<Card style={{ width: '18rem' }}>
 					<Card.Body>
 						<Form.Group className="mb-3 c" controlId="real-time-price">
-							<Form.Label column sm="2">
+							<Form.Label column sm="3">
 								Price
 							</Form.Label>
 							<Form.Control
@@ -88,7 +88,7 @@ const LimitBox = () => {
 								onChange={handleInputChange} />
 						</Form.Group>
 						<Form.Group className="mb-3" controlId="buy_amout">
-							<Form.Label column sm="2">
+							<Form.Label column sm="3">
 								Amount
 							</Form.Label>
 							<Form.Control
@@ -99,7 +99,7 @@ const LimitBox = () => {
 								onChange={handleInputChange} />
 						</Form.Group>
 						<Form.Group className="mb-3" controlId="total">
-							<Form.Label column sm="2">
+							<Form.Label column sm="3">
 								Total
 							</Form.Label>
 							<Form.Control
@@ -117,7 +117,7 @@ const LimitBox = () => {
 				<Card style={{ width: '18rem' }}>
 					<Card.Body>
 						<Form.Group className="mb-3 c" controlId="real-time-price">
-							<Form.Label column sm="2">
+							<Form.Label column sm="3">
 								Price
 							</Form.Label>
 							<Form.Control
@@ -128,7 +128,7 @@ const LimitBox = () => {
 								onChange={handleInputChange} />
 						</Form.Group>
 						<Form.Group className="mb-3" controlId="sell_amount">
-							<Form.Label column sm="2">
+							<Form.Label column sm="3">
 								Amount
 							</Form.Label>
 							<Form.Control
@@ -139,7 +139,7 @@ const LimitBox = () => {
 								onChange={handleInputChange} />
 						</Form.Group>
 						<Form.Group className="mb-3" controlId="total">
-							<Form.Label column sm="2">
+							<Form.Label column sm="3">
 								Total
 							</Form.Label>
 							<Form.Control
