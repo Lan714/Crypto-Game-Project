@@ -138,7 +138,7 @@ const History = () => {
 							</Row>
 							<br />
 							<Row>
-								<ReactBootStrap.Table striped bordered hover variant="dark">
+								<ReactBootStrap.Table striped bordered hover variant="dark" className="text-center">
 									<thead>
 										<tr>
 											<th>Cash Balance</th>
@@ -155,7 +155,7 @@ const History = () => {
 							</Row>
 							<br />
 							<Row>
-								<ReactBootStrap.Table bordered hover variant="dark">
+								<ReactBootStrap.Table bordered hover variant="dark" className="text-center">
 									<thead>
 										<tr>
 											<th>Date Time</th>
