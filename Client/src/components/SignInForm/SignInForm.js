@@ -21,7 +21,6 @@ const SignInForm = () => {
 	const handleInputChange = ({ target: { name, value } }) => setUserState({ ...userState, [name]: value })
 
 	const checkHistory = () => {
-		alert('checkHistory function!')
 		HistoryAPI.getHistory(Ingame_weekNumber().ingame_weeknumber)
 			.then(data => {
 				if (data.data.length === 0) {
