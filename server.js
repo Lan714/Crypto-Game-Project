@@ -5,6 +5,7 @@ const { join } = require('path')
 const passport = require('passport')
 const { Strategy: LocalStrategy } = require('passport-local')
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt')
+// const uri = process.env.MONGODB_URI
 
 const { User } = require('./models')
 const syncDB = require('./db')
