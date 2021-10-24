@@ -41,7 +41,7 @@ const Leaderboard = () => {
 		if (rank.rank === 1) {
 			return (
 				<tr key={index}>
-					<td><FontAwesomeIcon icon={faTrophy} id="lbIcon" /></td>
+					<td><FontAwesomeIcon icon={faTrophy} id="lbIcon" /> </td>
 					<td>{rank.username}</td>
 					<td>{rank.profit}</td>
 				</tr>
