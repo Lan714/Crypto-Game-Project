@@ -25,7 +25,14 @@ body {
 
 #ContactInfo {
   color: white;
+  text-align: center;
+  /* line-height: 3rem; */
 }
+
+/* .icon2 {
+  align-items: center;
+  justify-content: center;
+} */
 
 #aboutUsHeader {
   color: #ffcc00;

@@ -31,7 +31,14 @@ function AboutUs() {
 						</Col>
 					</Row>
 				</Container>
-				<Container id="ContactInfo">
+				<Container id="ControlledCarousel">
+					<Row xs={12}>
+						<Col id="Carousel">
+							<ControlledCarousel />
+						</Col>
+					</Row>
+				</Container>
+								<Container id="ContactInfo">
 					<Row top="xs" xs={12}>
 						<Col id="Contact">
 							<h3>Get In Touch </h3>
@@ -41,20 +48,20 @@ function AboutUs() {
 				<Container id="ContactInfo">
 					<Row sm={8}>
 						<Col id="ContactInfo">
-							<p><h6>Comments, Question or Concerns, feel free to contact us at:
-								<li className="list-unstyled"><p className="mb-0">
-                <FontAwesomeIcon icon={faPhone} className="icon2" />(541) 754-3010</p>
-									</li></h6></p>
-									<li className="list-unstyled"><p className="mb-0">
+							<p><h5>Comments, Question or Concerns, feel free to contact us at:	</h5>
+								<h5><li className="list-unstyled">
+									{/* <p className="mb-0"> */}
+                <FontAwesomeIcon icon={faPhone} className="icon2" />(541) 754-3010
+								{/* </p> */}
+									</li>
+									</h5>
+									</p>
+									<h5><li className="list-unstyled">
+										{/* <p className="mb-0"> */}
                 <FontAwesomeIcon icon={faEnvelope} className="icon2" />CryptoMaster@gmail.com
-                </p></li>
-						</Col>
-					</Row>
-				</Container>
-				<Container id="ControlledCarousel">
-					<Row xs={12}>
-						<Col id="Carousel">
-							<ControlledCarousel />
+                {/* </p> */}
+								</li>
+								</h5>
 						</Col>
 					</Row>
 				</Container>

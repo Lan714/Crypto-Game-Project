@@ -32,11 +32,7 @@
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.12",
-<<<<<<< HEAD
-    "passport": "^0.4.0",
-=======
     "passport": "0.4.0",
->>>>>>> 401a1b143548430f58bf3f4e0c43cc7ec19e904f
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
