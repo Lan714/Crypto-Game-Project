@@ -9,8 +9,8 @@ function AboutUs() {
 	return (
 		<div className="aboutUsPg">
 			<Navbar />
-			<div className="text-center">
-				<Container id="aboutUsHeader">
+			<div className=" aboutUsPgContent text-center">
+				<Container className="aboutUsCont" id="aboutUsHeader">
 					<Col id="aboutUsTitle">
 						<p class="text-warning" FontAwesomeIcon icon={"fas fa-user"} id="aboutUsIcon" />
 						About Us
@@ -18,14 +18,14 @@ function AboutUs() {
 						<br></br>
 					</Col>
 				</Container>
-				<Container id="howToPlay">
+				<Container className="aboutUsCont" id="howToPlay">
 					<Row top="xs" xs={12} md={1}>
 						<Col id="howToPlay">
 							<h3>How to Play CryptoMaster</h3>
 						</Col>
 					</Row>
 				</Container>
-				<Container id="Instructions">
+				<Container className="aboutUsCont" id="Instructions">
 					<Row sm={8}>
 						<Col id="Instructions">
 							<br></br>
@@ -41,7 +41,7 @@ function AboutUs() {
 						</Col>
 					</Row>
 				</Container>
-				<Container id="ControlledCarousel">
+				<Container className="aboutUsCont" id="ControlledCarousel">
 					<Row xs={12}>
 						<Col id="Carousel">
 							<ControlledCarousel />
