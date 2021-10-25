@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import UserAPI from '../../utils/UserAPI'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import { Form, Button } from 'react-bootstrap'
 import './RegisterForm.css'
 
 const RegisterForm = () => {
@@ -40,7 +38,7 @@ const RegisterForm = () => {
 
 	return (
 		<Form className="text-center">
-			<Form.Group className="mb-3" controlId="name">
+			<Form.Group className="mb-3 registerWidthBox" controlId="name">
 				<Form.Label></Form.Label>
 
 				<Form.Control
@@ -50,7 +48,7 @@ const RegisterForm = () => {
 					value={userState.name}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Form.Group className="mb-3" controlId="email">
+			<Form.Group className="mb-3 registerWidthBox" controlId="email">
 				<Form.Label></Form.Label>
 
 				<Form.Control
@@ -60,7 +58,7 @@ const RegisterForm = () => {
 					value={userState.email}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Form.Group className="mb-3" controlId="username">
+			<Form.Group className="mb-3 registerWidthBox" controlId="username">
 
 				<Form.Label></Form.Label>
 				<Form.Control
@@ -70,7 +68,7 @@ const RegisterForm = () => {
 					value={userState.username}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Form.Group className="mb-3" controlId="password">
+			<Form.Group className="mb-3 registerWidthBox" controlId="password">
 
 				<Form.Label></Form.Label>
 
@@ -81,7 +79,7 @@ const RegisterForm = () => {
 					value={userState.password}
 					onChange={handleInputChange} />
 			</Form.Group>
-			<Form.Group className="mb-3" controlId="password">
+			<Form.Group className="mb-3 registerWidthBox" controlId="password">
 				<Form.Label></Form.Label>
 				<Form.Control
 					type="password"
@@ -90,19 +88,20 @@ const RegisterForm = () => {
 					value={userState.password2}
 					onChange={handleInputChange} />
 			</Form.Group>
-				<Button id="register"
-					variant="outline-warning"
-					type="button">
-					<div onClick={() => history.push('/signin')} className="Register">
-						<span className="Register">Sign In</span>
-					</div>
-				</Button>
-				<Button
-					variant="warning"
-					type="submit"
-					onClick={handleRegisterUser} >
-					Register
-				</Button>
+			<Button id="register"
+				className="me-3"
+				variant="outline-warning"
+				type="button">
+				<div onClick={() => history.push('/signin')} className="Register">
+					<span className="Register">Sign In</span>
+				</div>
+			</Button>
+			<Button
+				variant="warning"
+				type="submit"
+				onClick={handleRegisterUser} >
+				Register
+			</Button>
 		</Form>
 	)
 }
