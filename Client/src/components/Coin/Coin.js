@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import handleInputChange from '../LimitBox/LimitBox'
-import updatePrice from '../LimitBox/LimitBox'
 
 const Coin = ({ coin, deleteCoin }) => {
   const click_coin = () => {
