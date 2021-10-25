@@ -75,7 +75,7 @@ const LimitBox = () => {
 	return (
 		<Container id="limitBoxCont" className="mt-5">
 			<CardGroup>
-				<Card style={{ width: '18rem' }}>
+				<Card style={{ width: '18rem' }} className="bg-dark rounded text-white">
 					<Card.Body>
 						<Form.Group className="mb-3" controlId="buy_amout">
 							<Form.Label column sm="3">
@@ -104,7 +104,7 @@ const LimitBox = () => {
 							Buy</Button>
 					</Card.Body>
 				</Card>
-				<Card style={{ width: '18rem' }}>
+				<Card style={{ width: '18rem' }} className="bg-dark rounded text-white">
 					<Card.Body>
 						<Form.Group className="mb-3" controlId="sell_amount">
 							<Form.Label column sm="3">

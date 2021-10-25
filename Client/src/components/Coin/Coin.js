@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const Coin = ({ coin, deleteCoin }) => {
   const click_coin = () => {
+    localStorage.setItem('clicked_coin', coin.id)
     localStorage.setItem('clicked_coin_price', coin.current_price)
     alert(`You choose ${coin.id}!`)
   }
@@ -13,7 +14,7 @@ const Coin = ({ coin, deleteCoin }) => {
     React.createElement(
       "li",
       {
-        className: "coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-dark",
+        className: "coinlist-item border list-group-item list-group-item-action d-flex justify-content-between align-items-center text-white bg-dark",
         onClick: () => click_coin()
       },
       React.createElement("img", { className: "coinlist-image", src: coin.image, alt: "" }),
