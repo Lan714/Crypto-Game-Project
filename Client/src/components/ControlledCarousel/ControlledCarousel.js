@@ -12,8 +12,9 @@ import './ControlledCarousel.css';
 function ControlledCarousel() {
   return (
     <div id="Title" style={{ display: 'block', width: 500, padding: 30, color:'white'}}>
-      <h1>Who We Are</h1>
-      <h3>CryptoMaster is the brainchild of six UCI Full Stack Bootcamp Students</h3>
+      <h1 style={{color:'#ffcc00'}}>Who We Are</h1>
+      <h3 style={{color:'white'}}>CryptoMaster is the brainchild of six UCI Full Stack Bootcamp Students</h3>
+      <br></br>
       <Carousel center="xs" id="WhoWeAre">
         <Carousel.Item interval={2000}>
           <img className="d-block w-100" src={Jasmine}/>
