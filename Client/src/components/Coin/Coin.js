@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Coin = ({ coin, deleteCoin }) => {
   const click_coin = () => {
-    console.log(coin.id)
-    console.log(coin.current_price)
+    localStorage.setItem('clicked_coin_price', coin.current_price)
+    alert(`You choose ${coin.id}!`)
   }
 
   return React.createElement(

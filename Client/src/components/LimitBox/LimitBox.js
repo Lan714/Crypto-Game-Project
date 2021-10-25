@@ -1,14 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import HistoryAPI from '../../utils/HistoryAPI/HistoryAPI'
 import { Container, Card, CardGroup, Form, Button } from 'react-bootstrap'
 import './LimitBox.css'
 
 const LimitBox = () => {
-	const crypto_name = "TESTING"
-	const real_time_price = localStorage.getItem('bitcoin')
+	const crypto_name = localStorage.getItem('clicked_coin')
+	const real_time_price = localStorage.getItem('clicked_coin_price')
 
 	const [priceState, setPriceState] = useState({
-		real_time_price: real_time_price,
+		cyrpto_name: '',
+		real_time_price: 0.0,
 		sell_amount: 0.0,
 		buy_amout: 0.0
 	})
@@ -76,17 +77,6 @@ const LimitBox = () => {
 			<CardGroup>
 				<Card style={{ width: '18rem' }}>
 					<Card.Body>
-						<Form.Group className="mb-3 c" controlId="real-time-price">
-							<Form.Label column sm="3">
-								Price
-							</Form.Label>
-							<Form.Control
-								type="text"
-								placeholder="Real time price"
-								name="price"
-								value={priceState.real_time_price}
-								onChange={handleInputChange} />
-						</Form.Group>
 						<Form.Group className="mb-3" controlId="buy_amout">
 							<Form.Label column sm="3">
 								Amount
@@ -116,17 +106,6 @@ const LimitBox = () => {
 				</Card>
 				<Card style={{ width: '18rem' }}>
 					<Card.Body>
-						<Form.Group className="mb-3 c" controlId="real-time-price">
-							<Form.Label column sm="3">
-								Price
-							</Form.Label>
-							<Form.Control
-								type="text"
-								placeholder="Real time price"
-								name="price"
-								value={priceState.real_time_price}
-								onChange={handleInputChange} />
-						</Form.Group>
 						<Form.Group className="mb-3" controlId="sell_amount">
 							<Form.Label column sm="3">
 								Amount
