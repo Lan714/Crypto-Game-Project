@@ -18,7 +18,6 @@ function AboutUs() {
 						<br></br>
 					</Col>
 				</Container>
-				<Container id="howToPlay">
 				<Container className="aboutUsCont" id="howToPlay">
 					<Row top="xs" xs={12} md={1}>
 						<Col id="howToPlay">
