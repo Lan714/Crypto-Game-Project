@@ -2,12 +2,9 @@ import { useState } from 'react'
 import UserAPI from '../../utils/UserAPI'
 import HistoryAPI from '../../utils/HistoryAPI'
 import { useHistory } from 'react-router-dom'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import './SignIn.css'
-
+import { Form, Button } from 'react-bootstrap'
 import Ingame_weekNumber from '../Ingame_weekNumber'
-
+import './SignIn.css'
 
 const SignInForm = () => {
 
@@ -52,7 +49,7 @@ const SignInForm = () => {
 
 		<div className="olor-overlay d-flex justify-content-center align-items-center">
 			<Form classname="rounded p-4 p-sm-3">
-				<Form.Group className="mb-3 c" controlId="username">
+				<Form.Group className="mb-3 signInWidthBox" controlId="username">
 					<Form.Control
 						type="text"
 						placeholder="Enter your username"
@@ -60,7 +57,7 @@ const SignInForm = () => {
 						value={userState.username}
 						onChange={handleInputChange} />
 				</Form.Group>
-				<Form.Group className="mb-3" controlId="password">
+				<Form.Group className="mb-3 signInWidthBox" controlId="password">
 					<Form.Control
 						type="password"
 						placeholder="Enter your password"
@@ -70,9 +67,10 @@ const SignInForm = () => {
 				</Form.Group>
 				<Form.Group className="mb-3"
 					controlId="formBasicCheckbox">
-					<Form.Check type="checkbox" label="Remember Me" />
+					<Form.Check className="text-white" type="checkbox" label="Remember Me" />
 				</Form.Group>
 				<Button id="signIn"
+					className="me-3"
 					variant="warning"
 					type="submit"
 					onClick={handleLoginUser} >
