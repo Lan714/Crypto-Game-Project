@@ -8,28 +8,6 @@ form {
   position: center;
 }
 
-/* Full-width inputs */
-
-input[type=text], input[type=password] {
-  width: 50%;
-  display: inline-block;
-  align-content: center;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-
-.button {
-  background-color: #04AA6D;
-  border: black;
-  cursor: pointer;
-  outline: black;
-  width: 100px;
-  margin-left: auto;
-  margin-right: 16px;
-}
-
 /* Add a hover effect for buttons */
 
 button:hover {
@@ -39,9 +17,9 @@ button:hover {
 /* Add padding to containers */
 
 #registerCont {
-  padding-top: 16rem;
+  padding-top: 9rem;
   text-align: center;
-  position: absolute;
+  position: relative;
 }
 
 /* Change styles for span and cancel button on extra small screens */
